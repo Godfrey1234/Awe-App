@@ -1,1 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+.AWE{
+    font-size: 42px;
+}
+#A{
+    color:#FAA21E;
+}
+#W{
+    color: #20A8F5;
+}
+#E{
+    color: #000000;
+}
+#logo{
+    width: 12%;
+   height: 40px;
+}
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
