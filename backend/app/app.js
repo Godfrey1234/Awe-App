@@ -21,10 +21,7 @@ const server = app.listen(PORT, () => {
 });
 
 
-// declaring endpoint routes
-// method   path    the function
-// app.get('/users',db.getUsers)
-// app.get('/users/:id',db.getUserById)
-// app.post('/users',db.createUser)
-// app.put('/users/:id',db.updateUser)
-// app.delete('/users',db.deleteUser)
+
+app.post('/register',db.createUser)
+app.post('/login',db.login)
+
