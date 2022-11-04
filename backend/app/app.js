@@ -4,14 +4,24 @@ const bodyParser = require("body-parser");
 app.use(bodyParser.json());
 const db = require('../controller/controller')
 
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
+}));
 
-
-
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,GET,DELETE,PUT,OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type,Accept');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();    
+});
 
 app.get(``, (req, res) => { 
 
-    res.json({info:'your backend is running on port 3000'})
+    res.json({info:'Node.js,Express, and Postgres API'})
  });
+
 
 
 // Listen to the specified port, otherwise 3000
@@ -24,4 +34,5 @@ const server = app.listen(PORT, () => {
 
 app.post('/register',db.createUser)
 app.post('/login',db.login)
+
 

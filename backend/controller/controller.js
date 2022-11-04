@@ -16,9 +16,14 @@ const pool = new Pool({
 const createUser = (req, res) => {
     
   const {contact,email,fullname,username,password,confirm} = req.body; 
-   
+   console.log(contact)
+   console.log(email)
   
-  //checking if user already has an account
+  
+
+  if(contact && email && fullname && username && password && confirm){
+
+   //checking if user already has an account
   pool.query('select * from aweusers where email = $1' ,[email],(error, results)=> {
     
     if (results.rowCount > 0) {
@@ -34,16 +39,20 @@ const createUser = (req, res) => {
             {
               res.send(`sytem error `);
             }
-          if(contact){
-            res.status(201).send(`User added with :${results.rows[0].email}` );
-          }  
           else{
-            res.send('missing name or email')
-          }
+            
+            res.send(results)
+          }  
+         
               
       });
     }
     });
+
+  }else{
+
+    res.send('fill all form fields')
+  }
   
 };
 
@@ -51,15 +60,15 @@ const createUser = (req, res) => {
 //Register fuction 
 const login = (req, res) => {
 
-  const {email,password} = req.body; 
+  const {username,password} = req.body; 
    
    
-  pool.query('select * from aweusers where email = $1 AND password = $2' ,[email,password],(error, results)=> {
+  pool.query('select * from aweusers where username = $1 AND password = $2' ,[username,password],(error, results)=> {
     
     if (results.rowCount > 0) {
-
-      res.send(results)
     
+      res.send('success')
+  
     }else{
       res.send('invalid login details')
     }
