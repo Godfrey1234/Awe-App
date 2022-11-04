@@ -17,4 +17,12 @@
    height: 40px;
 }
 /* Importing Bootstrap SCSS file. */
-@import '~bootstrap/scss/bootstrap';
+
+// Variable overrides first
+
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";

@@ -4,10 +4,10 @@ const Pool = require('pg').Pool
 
 //code for database connection
 const pool = new Pool({
-    user: 'postgres',  //Database username
+    user: 'admin',  //Database username
     host: 'localhost', 
     database: 'awe',
-    password: 'Letsdoit!',
+    password: 'admin12345',
     port: 5432,
   })
 
@@ -16,33 +16,35 @@ const pool = new Pool({
 const createUser = (req, res) => {
     
   const {contact,email,fullname,username,password,confirm} = req.body; 
+   
   
-   if(password != confirm ){
+  //checking if user already has an account
+  pool.query('select * from aweusers where email = $1' ,[email],(error, results)=> {
     
-     res.send('password dont match')
+    if (results.rowCount > 0) {
 
-   }else{
+      res.send('user has already been registered')
     
-    pool.query('INSERT INTO aweusers (contact,email,fullname,username,password) VALUES ($1,$2,$3,$4,$5) RETURNING email',[contact,email,fullname,username,password],(error, results) => 
-    {
+    }else{
 
-        if (error) 
-          {
-            res.send(`sytem error `);
+      pool.query('INSERT INTO aweusers (contact,email,fullname,username,password) VALUES ($1,$2,$3,$4,$5) RETURNING email',[contact,email,fullname,username,password],(error, results) => 
+      {
+  
+          if (error) 
+            {
+              res.send(`sytem error `);
+            }
+          if(contact){
+            res.status(201).send(`User added with :${results.rows[0].email}` );
+          }  
+          else{
+            res.send('missing name or email')
           }
-        if(contact){
-          res.status(201).send(`User added with :${results.rows[0].email}` );
-        }  
-        else{
-          res.send('missing name or email')
-        }
-            
-
-
+              
+      });
+    }
     });
-
   
-  }
 };
 
 
@@ -52,14 +54,14 @@ const login = (req, res) => {
   const {email,password} = req.body; 
    
    
-  pool.query('select * from aweusers where email = $1 AND password = $2',[email,password], function(error, results) {
+  pool.query('select * from aweusers where email = $1 AND password = $2' ,[email,password],(error, results)=> {
     
-    if (!eresults) {
+    if (results.rowCount > 0) {
 
-      res.send('777')
+      res.send(results)
     
     }else{
-      res.send(results)
+      res.send('invalid login details')
     }
     });
 
