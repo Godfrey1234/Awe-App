@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 @NgModule({
@@ -18,6 +20,8 @@ import { HomeComponent } from './pages/home/home.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
+    NavbarComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,

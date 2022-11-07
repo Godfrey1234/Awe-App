@@ -13,8 +13,14 @@
     color: #000000;
 }
 #logo{
-    width: 12%;
+    // width: 12%;
    height: 40px;
+   max-width: 94%;
+}
+.test-right{
+    background-color: #20A8F5;
+    color: #fff;
+   box-shadow: #FAA21E;
 }
 /* Importing Bootstrap SCSS file. */
 
