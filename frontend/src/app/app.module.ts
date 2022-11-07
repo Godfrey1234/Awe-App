@@ -12,6 +12,12 @@ import { NotificationsComponent } from './pages/notifications/notifications.comp
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UploadPageComponent } from './pages/upload-page/upload-page.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,10 +29,17 @@ import { UploadPageComponent } from './pages/upload-page/upload-page.component';
     NotificationsComponent,
     ProfileComponent,
     UploadPageComponent
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      { path: 'login', component: LoginComponent },
+      { path: 'register', component: RegisterComponent },]),
   ],
   providers: [],
   bootstrap: [AppComponent]

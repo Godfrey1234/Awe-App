@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AweServiceService } from 'src/app/service/awe-service.service';
+
 
 @Component({
   selector: 'app-login',
@@ -7,9 +11,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
   ngOnInit(): void {
+  }
+
+  onSubmit(data:any){
+   
+   //Add the User to the Database
+   this.http.post('http://localhost:3000/login',data, {responseType:'text'})
+   .subscribe((results)=>{
+
+     
+
+     if(results == 'success'){
+      alert('succesfully loged in')
+      console.warn(results)
+      localStorage.setItem("token",results);
+      
+     }
+     else{
+      alert('invalid login details')
+      console.warn(results)
+     }
+     
+   })
   }
 
 }

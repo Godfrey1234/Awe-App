@@ -16,6 +16,9 @@
     width: 12%;
    height: 40px;
 }
+
+
+
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 .bi2 {
@@ -23,3 +26,12 @@
    
     color: #090808;
 }
+
+// Variable overrides first
+
+$enable-shadows: true;
+$prefix: "mo-";
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";

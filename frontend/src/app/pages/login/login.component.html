@@ -1,3 +1,5 @@
+
+
 <div class="container" style=" padding-top:100px;">
     <!-- <h2 class="text-center">Contac Form</h2> -->
   
@@ -7,7 +9,8 @@
 
                     <!--Form with header-->
 
-                    <form action="mail.php" method="post">
+                    <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
+
                         <!-- <div class="card bg-dark rounded"> -->
                             <!-- <div class="card-header p-0"> -->
                                 <div class="text-center"> 
@@ -26,7 +29,7 @@
                                         <div class="input-group-prepend">
                                             <!-- <div class="input-group-text"><i class="fa fa-user text-info"></i></div> -->
                                         </div>
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="USERNAME" required>
+                                        <input type="text" class="form-control" id="username" ngModel name="username" placeholder="USERNAME" required>
                                     </div>
                                     <br>
                                 </div>
@@ -35,7 +38,7 @@
                                         <div class="input-group-prepend">
                                             <!-- <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div> -->
                                         </div>
-                                        <input type="password" class="form-control" id="nombre" name="email" placeholder="PASSWORD" required>
+                                        <input type="password" class="form-control" id="password" ngModel name="password" placeholder="PASSWORD" required>
                                     </div>
                                 </div>
 <br>
@@ -57,9 +60,8 @@
                     </form>
                     <!--Form with header-->
                     <p class="text-right">Forgotten your password?</p>
-                    
-                    <p class="text-center"  >Don’t have an account? <button type="button" class="btn btn-link" [routerLink]="['/register']" routerLinkActive="router-link-active">Sign Up</button></p>
-
+                    <br>
+                    <p><span><button type="button" class="btn btn-link" [routerLink]="['/register']" routerLinkActive="router-link-active">Sign Up</button></span></p> 
                 </div>
     </div>
 </div>
