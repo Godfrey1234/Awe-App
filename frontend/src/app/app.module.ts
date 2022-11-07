@@ -11,11 +11,11 @@ import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { UploadPageComponent } from './pages/upload-page/upload-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
-
 
 
 @NgModule({
@@ -28,7 +28,8 @@ import { RouterModule } from '@angular/router';
     SearchPageComponent,
     NotificationsComponent,
     ProfileComponent,
-    UploadPageComponent
+    UploadPageComponent,
+    NavbarComponent
     
   ],
   imports: [
@@ -39,7 +40,9 @@ import { RouterModule } from '@angular/router';
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },]),
+      { path: 'register', component: RegisterComponent },
+      {path:'home',component:HomeComponent}
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
