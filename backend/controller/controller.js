@@ -41,7 +41,7 @@ const createUser = (req, res) => {
             }
           else{
             
-            res.send(results)
+            res.send('success')
           }  
          
               
