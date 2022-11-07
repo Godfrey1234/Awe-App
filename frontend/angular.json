@@ -28,12 +28,11 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "./Users/da-mac110/Desktop/Awe-App/frontend/node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "./Users/da-mac110/Desktop/Awe-App/frontend/node_modules/bootstrap-icons/font/bootstrap-icons.scss"
+              "src/styles.scss"
+            
             ],
             "scripts": [
-              "./Users/da-mac110/Desktop/Awe-App/frontend/node_modules/bootstrap/dist/js/bootstrap.min.js"
+            
             ]
           },
           "configurations": {
