@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AweServiceService } from 'src/app/service/awe-service.service';
 
 
@@ -27,6 +28,7 @@ export class LoginComponent implements OnInit {
       alert('succesfully loged in')
       console.warn(results)
       localStorage.setItem("token",results);
+      
      }
      else{
       alert('invalid login details')
