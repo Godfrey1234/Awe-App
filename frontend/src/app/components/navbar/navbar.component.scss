@@ -76,8 +76,9 @@ body {
   }
   
   .AWE{
-    font-size: 1.3rem;
+    font-size: 2rem;
     margin-left: 1rem;
+    
   }
   .header .menu-icon .navicon:before,
   .header .menu-icon .navicon:after {
@@ -123,6 +124,11 @@ body {
   .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before,
   .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
     top: 0;
+  }
+  
+  .text-right{
+   float: right;
+
   }
   
   /* 48em = 768px */

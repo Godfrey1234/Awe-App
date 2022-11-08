@@ -1,9 +1,11 @@
+
 <header class="header">
-    <a class="AWE">  <span id="A">A</span><span id="W">w</span><span id="E">e</span></a>
+    <form #userPost="ngForm"  style="text-align: center;">
+   
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
-        <li><a href="#work" class="text-right"><i class="bi bi-box-arrow-right "></i>  LOGOUT</a></li>
-       
+        <li><a class="text-right" type="submit" (click)="onClick()"><i class="bi bi-box-arrow-right "></i>LOGOUT</a></li>
     </ul>
+    </form>
   </header>

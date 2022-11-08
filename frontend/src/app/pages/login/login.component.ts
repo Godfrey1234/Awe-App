@@ -13,6 +13,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private http:HttpClient) { }
 
+  token:any
+
   ngOnInit(): void {
   }
 
@@ -29,7 +31,7 @@ export class LoginComponent implements OnInit {
       console.warn(results)
       
       
-      localStorage.setItem("token",results);
+      this.token = localStorage.setItem("token",results);
       
      }
      else{

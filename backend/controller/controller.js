@@ -41,7 +41,13 @@ const createUser = (req, res) => {
             }
           else{
             
-            res.send('success')
+            if(password == confirm){
+              res.send(email)
+            }
+            else{
+              res.send('password dont match')
+            }
+           
           }  
          
               
@@ -67,7 +73,7 @@ const login = (req, res) => {
     
     if (results.rowCount > 0) {
     
-      res.send('success')
+      res.send(results)
   
     }else{
       res.send('invalid login details')
