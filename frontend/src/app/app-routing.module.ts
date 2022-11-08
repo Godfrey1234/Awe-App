@@ -6,7 +6,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { UploadPageComponent } from './pages/upload-page/upload-page.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
-
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 const routes: Routes = [
@@ -17,7 +17,8 @@ const routes: Routes = [
   {path:"profile",component:ProfileComponent},
   {path:"search",component:SearchPageComponent},
   {path:"upload",component:UploadPageComponent},
-  {path:"notification",component:NotificationsComponent}
+  {path:"notification",component:NotificationsComponent},
+  {path:"editprofile",component:EditProfileComponent}
 
 
 ];

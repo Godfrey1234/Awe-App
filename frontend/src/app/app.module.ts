@@ -16,6 +16,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
+import { LogoComponent } from './components/logo/logo.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { RouterModule } from '@angular/router';
     NotificationsComponent,
     ProfileComponent,
     UploadPageComponent,
-    NavbarComponent
+    NavbarComponent,
+    EditProfileComponent,
+    LogoComponent
     
   ],
   imports: [
