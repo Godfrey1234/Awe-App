@@ -42,7 +42,7 @@ const createUser = (req, res) => {
           else{
             
             if(password == confirm){
-              res.send(email)
+              res.send('successfully registered')
             }
             else{
               res.send('password dont match')
@@ -66,19 +66,29 @@ const createUser = (req, res) => {
 //Register fuction 
 const login = (req, res) => {
 
-  const {username,password} = req.body; 
-   
-   
-  pool.query('select * from aweusers where username = $1 AND password = $2' ,[username,password],(error, results)=> {
-    
-    if (results.rowCount > 0) {
-    
-      res.send(results)
-  
-    }else{
+  const {email,password} = req.body; 
+
+
+  if(email && password){
+
+    //checking if user already has an account
+   pool.query('select * from aweusers where email = $1 And password = $2' ,[email,password],(error, results)=> {
+     
+     if (results.rowCount > 0) {
+ 
+       res.send(email)
+     
+     }else{
+ 
       res.send('invalid login details')
-    }
-    });
+     }
+     });
+ 
+   }else{
+ 
+     res.send('enter username and password')
+   }
+  
 
 
 }
