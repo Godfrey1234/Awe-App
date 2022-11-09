@@ -12,20 +12,27 @@ import { AweServiceService } from 'src/app/service/awe-service.service';
 
 
 export class HomeComponent implements OnInit {
+  display: AweServiceService | undefined;
 
   constructor(private service:AweServiceService) { }
 
   tittle:any;
-
+  data1:any;
+ 
 
 
 
 
   ngOnInit(): void {
+
     
     this.tittle = localStorage.getItem("token");
-   
- 
+    this.service = JSON.parse(this.tittle);
+    // this.display = this.service
+    console.log(this.tittle)
+
+    
   }
+
 
 }

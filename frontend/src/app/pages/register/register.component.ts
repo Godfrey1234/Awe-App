@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AweServiceService } from 'src/app/service/awe-service.service';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, NgForm } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 
 
@@ -16,6 +16,11 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private http:HttpClient, private router : Router) { }
+
+
+
+  
+
 
   ngOnInit(): void {
 
