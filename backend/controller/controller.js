@@ -76,7 +76,7 @@ const login = (req, res) => {
      
      if (results.rowCount > 0) {
  
-       res.send(email)
+       res.send(results)
      
      }else{
  

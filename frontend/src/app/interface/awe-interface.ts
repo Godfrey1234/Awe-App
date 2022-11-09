@@ -1,6 +1,6 @@
 export interface AweInterface {
     email:string,
-    fullname:string,
+    password:string,
     username:string
 }
 

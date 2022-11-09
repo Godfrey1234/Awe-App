@@ -17,7 +17,7 @@ const routes: Routes = [
   {path:"profile",component:ProfileComponent},
   {path:"search",component:SearchPageComponent},
   {path:"upload",component:UploadPageComponent},
-  {path:"notification",component:NotificationsComponent},
+  {path:"notifications",component:NotificationsComponent},
   {path:"editprofile",component:EditProfileComponent}
 
 
