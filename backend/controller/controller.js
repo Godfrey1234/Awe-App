@@ -15,13 +15,13 @@ const pool = new Pool({
 //Register fuction 
 const createUser = (req, res) => {
     
-  const {contact,email,fullname,username,password,confirm} = req.body; 
+  const {contact,email,fullname,password,confirm} = req.body; 
    console.log(contact)
    console.log(email)
   
   
 
-  if(contact && email && fullname && username && password && confirm){
+  if(password == confirm){
 
    //checking if user already has an account
   pool.query('select * from aweusers where email = $1' ,[email],(error, results)=> {
@@ -32,7 +32,7 @@ const createUser = (req, res) => {
     
     }else{
 
-      pool.query('INSERT INTO aweusers (contact,email,fullname,username,password) VALUES ($1,$2,$3,$4,$5) RETURNING email',[contact,email,fullname,username,password],(error, results) => 
+      pool.query('INSERT INTO aweusers (contact,email,fullname,password) VALUES ($1,$2,$3,$4) RETURNING email',[contact,email,fullname,password],(error, results) => 
       {
   
           if (error) 
@@ -40,14 +40,9 @@ const createUser = (req, res) => {
               res.send(`sytem error `);
             }
           else{
-            
-            if(password == confirm){
+          
               res.send('successfully registered')
-            }
-            else{
-              res.send('password dont match')
-            }
-           
+            
           }  
          
               
@@ -57,7 +52,7 @@ const createUser = (req, res) => {
 
   }else{
 
-    res.send('fill all form fields')
+    res.send('password dont match')
   }
   
 };

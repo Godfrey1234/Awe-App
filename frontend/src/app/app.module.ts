@@ -47,7 +47,7 @@ import { LogoComponent } from './components/logo/logo.component';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      {path:'home',component:HomeComponent}
+      { path:'home',component:HomeComponent}
     ]),
   ],
   providers: [],
