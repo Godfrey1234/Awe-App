@@ -14,18 +14,7 @@
                     <span id="A">A</span><span id="W">w</span><span id="E">e</span> 
                 </p>
                 <p >Sign up to see photos and videos <br> from your friends</p>
-                <div class="form-outline mb-4" [class.has-error]="contact.invalid && contact.touched" [class.has-success]="contact.valid ">
-                    <input type="tel" class="form-control" id="contact" ngModel name="contact" minlength="10" maxlength="10" placeholder="Mobile Number" #contact="ngModel" required ng-pattern="[7-9][0-9]{9}" >
-                    <label class="control-label" for="form3Example1cg"></label>
-                    <span class="help-block" *ngIf="contact.errors?.['required'] && contact.touched">
-                      <p class="er">Contact is required!</p>
-                    </span>
-                    <span class="help-block" *ngIf="contact.errors?.['ng-pattern']">
-                      <p class="er">Contact is required!</p>
-                    </span>
-                    
-                  
-                </div>
+                
                  
                 <div class="form-outline mb-4" [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid ">
                   <input type="text" class="form-control" email id="email" ngModel name="email" placeholder="Email" #email="ngModel" required >
@@ -41,13 +30,24 @@
                 </div>
 
                 <div class="form-outline mb-4" [class.has-error]="fullname.invalid && fullname.touched" [class.has-success]="fullname.valid ">
-                  <input type="text" class="form-control" id="fullname" ngModel name="fullname" minlength="3" placeholder="Full Name" #fullname="ngModel" required>
+                  <input type="text" class="form-control" id="fullname" ngModel name="fullname" minlength="3" placeholder="Name" #fullname="ngModel" required>
                   <label class="control-label"  for="form3Example3cg"></label>
                   <span class="help-block" *ngIf="fullname.errors?.['required'] && fullname.touched">
                     <p class="er">fullname is required!</p>
                   </span>
                   <span class="help-block" *ngIf="fullname.errors?.['minlength']">
-                    <p class="er">must be at least 3 characters long.</p>
+                    <p class="er">Name must be at least 3 characters long.</p>
+                  </span>
+                </div>
+
+                <div class="form-outline mb-4" [class.has-error]="surname.invalid && surname.touched" [class.has-success]="surname.valid ">
+                  <input type="text" class="form-control" id="surname" ngModel name="surname" minlength="3" placeholder="Surname" #surname="ngModel" required>
+                  <label class="control-label"  for="form3Example3cg"></label>
+                  <span class="help-block" *ngIf="surname.errors?.['required'] && surname.touched">
+                    <p class="er">surname is required!</p>
+                  </span>
+                  <span class="help-block" *ngIf="surname.errors?.['minlength']">
+                    <p class="er">surname must be at least 3 characters long.</p>
                   </span>
                 </div>
 

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-upload-page',
   templateUrl: './upload-page.component.html',
@@ -11,5 +12,7 @@ export class UploadPageComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  upload(){}
 
 }

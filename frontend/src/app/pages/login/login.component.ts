@@ -28,20 +28,19 @@ export class LoginComponent implements OnInit {
   onSubmit(data:any){
    
     console.log(data)
-    this.tittle = data.email
+    this.tittle = JSON.stringify(data.email)
    //Add the User to the Database
    this.http.post('http://localhost:3000/login',data, {responseType:'text'})
    .subscribe((results)=>{
 
-     
-
-     if(results == results){
+    
+     if(results == 'sucess'){
       
      
       this.router.navigate(['home']);
       localStorage.setItem("token",this.tittle);
       console.warn('sucess');
-      alert('successfully registered');
+      alert('successfully logged in');
       
      }
      else{

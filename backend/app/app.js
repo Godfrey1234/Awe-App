@@ -1,7 +1,10 @@
 const express = require('express');
 const app = express();
 const bodyParser = require("body-parser");
+
+
 app.use(bodyParser.json());
+
 const db = require('../controller/controller')
 
 app.use( bodyParser.json() );       // to support JSON-encoded bodies
@@ -32,7 +35,14 @@ const server = app.listen(PORT, () => {
 
 
 
+
+
+
+
+
 app.post('/register',db.createUser)
 app.post('/login',db.login)
+app.get('/userDetails',db.userDetails)
 
+app.post('/image',db.image)
 

@@ -1,5 +1,8 @@
 const Pool = require('pg').Pool
+//multer is for images
 
+const sharp = require('sharp')
+const multer = require('multer')
 
 
 //code for database connection
@@ -15,9 +18,11 @@ const pool = new Pool({
 //Register fuction 
 const createUser = (req, res) => {
     
-  const {contact,email,fullname,password,confirm} = req.body; 
-   console.log(contact)
+  const {surname,email,fullname,password,confirm} = req.body; 
+ 
    console.log(email)
+   console.log(surname)
+   console.log(fullname)
   
   
 
@@ -32,7 +37,7 @@ const createUser = (req, res) => {
     
     }else{
 
-      pool.query('INSERT INTO aweusers (contact,email,fullname,password) VALUES ($1,$2,$3,$4) RETURNING email',[contact,email,fullname,password],(error, results) => 
+      pool.query('INSERT INTO aweusers (surname,email,fullname,password) VALUES ($1,$2,$3,$4) RETURNING email',[surname,email,fullname,password],(error, results) => 
       {
   
           if (error) 
@@ -63,6 +68,8 @@ const login = (req, res) => {
 
   const {email,password} = req.body; 
 
+  console.log(email)
+  console.log(password)
 
   if(email && password){
 
@@ -71,7 +78,7 @@ const login = (req, res) => {
      
      if (results.rowCount > 0) {
  
-       res.send(results)
+       res.send('sucess')
      
      }else{
  
@@ -88,11 +95,83 @@ const login = (req, res) => {
 
 }
 
+//getting user details
+
+
+//Register fuction 
+const userDetails = (req, res) => {
+
+  const {email} = req.body;
+
+  if(email){
+
+  //get all user details
+   pool.query('select * from aweusers where email = $1' ,[email],(error, results)=> {
+     
+     if (results.rowCount > 0) {
+ 
+       res.send(results)
+     
+     }else{
+ 
+      res.send('user doesnt exist')
+     }
+     });
+ 
+   }else{
+ 
+     res.send('did not get email')
+   }
+  
+}
+
+
+
+//for getting the image and destination
+ const storage = multer.diskStorage({
+
+    destination:(req, file, callBack)=>{
+      callBack(null,'uploads')//path to save images
+    },
+    filename:(req,file,callBack)=>{
+      callBack(null,`Awe_${file.originalname}`)
+    }
+  
+
+  })
+
+ var upload = multer({storage:storage})
+
+ const image = (upload.single('file'),(req, res, next) => {
+
+   const file = req.body.file
+   const caption = req.body.caption
+   const user = req.body.user
+   
+   console.log(file)
+   console.log (caption)
+
+
+   if(!file){
+    res.send('please upload a file')
+   }
+   else{
+    res.send(file)
+   }
+
+
+ 
+
+
+})
 
 
 module.exports = {
  
   createUser,
-  login
+  login,
+  image,
+  userDetails
+ 
   
 }    

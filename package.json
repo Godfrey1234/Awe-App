@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@cloudinary/angular-5.x": "^1.5.3"
+  }
+}
