@@ -6,7 +6,7 @@ const  userPosts = (req, res) => {
 
 
   //sipho ngwala code
-
+  
 
 
 }
