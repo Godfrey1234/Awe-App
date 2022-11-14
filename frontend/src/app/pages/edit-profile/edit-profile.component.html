@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <section class="vh-100 bg-image">
-
+<br>
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
@@ -39,14 +39,13 @@
                     type="email"
                     class="form-control"
                     id="email"
-                    ngModel
                     name="email"
-                    placeholder="Email"
-                    required
+                    placeholder="{{user}}"
+                    disabled
                   />
 
                   <label class="form-label" for="form3Example3cg"
-                    >fullname</label
+                    >Name</label
                   >
                   <input
                     type="text"
@@ -54,8 +53,9 @@
                     id="fullname"
                     ngModel
                     name="fullname"
-                    placeholder="Full Name"
+                    placeholder="Name"
                     required
+                    disabled
                   />
 
                   <label class="form-label" for="form3Example4cg"
@@ -65,10 +65,11 @@
                     type="text"
                     class="form-control"
                     id="username"
-                    ngModel
+                   
                     name="username"
-                    placeholder="UserName"
+                    placeholder="Surname"
                     required
+                    disabled
                   />
 
                   <label class="form-label" for="form3Example4cg"
@@ -102,7 +103,7 @@
 
                 <br />
                 <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-light" [routerLink]="['/profile']" routerLinkActive="router-link-active" >save</button>
+                  <button type="submit" class="btn btn-light" [routerLink]="['/profile']" routerLinkActive="router-link-active" >update</button>
                 </div>
               </form>
               <br />
@@ -113,3 +114,5 @@
     </div>
   </div>
 </section>
+<br><br>
+<app-footer></app-footer>

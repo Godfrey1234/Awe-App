@@ -1,14 +1,16 @@
 <app-navbar></app-navbar>
 <br>
 <br>
+<div class="container">
 <table>
   <br><br>
   <br><br>
   <tr>
       <th class="col">
-          <img class="profilePic" src="https://mdbootstrap.com/images/avatars/img%20(1).jpg" alt="">
-          <br><span class="name">mabena </span>
+        <img class="profilePic" src="https://mdbootstrap.com/images/avatars/img%20(1).jpg" alt="">
+        <br><div class="name"><span class="spName"> Godfrey mabena </span></div>
       </th>
+
       <th class="col1">
           <span class="text">10k</span><br>
           <span>posts</span>
@@ -27,6 +29,7 @@
 
   </tr>
 </table>
+<br>
 <button type="button" class="btn btn-light" [routerLink]="['/editprofile']" routerLinkActive="router-link-active" > Edit profile</button>
            
             <div class="d-flex justify-content-between align-items-center mb-4">
@@ -95,6 +98,6 @@
                   alt="image 1" class="w-100 rounded-3">
               </div>
             </div>
-   
+</div>
 
 <app-footer></app-footer>

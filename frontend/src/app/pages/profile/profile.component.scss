@@ -1,13 +1,13 @@
 .profilePic{
-    width:  75%;
-    height: 40%;
+    width:  70%;
+    height: 45%;
     border-radius: 48%;
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
 span{
-    font-size:120%;
+    font-size:60%;
 }
 
 tr{
@@ -25,14 +25,17 @@ tr{
 }
 
 .text{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .name{
 
-    font-size: 100%;
     margin-left: 2%;
-    padding-left: 18%;
+    margin-right: 2%;
+}
+
+.spName{
+    font-size: 60%;
 }
 
 button{

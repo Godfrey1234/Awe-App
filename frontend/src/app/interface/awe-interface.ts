@@ -1,7 +1,8 @@
 export interface AweInterface {
-    email:string,
-    password:string,
-    username:string
+    useremail: string;
+    name: string;
+    surname: string;
+    password:string;
 }
 
 
