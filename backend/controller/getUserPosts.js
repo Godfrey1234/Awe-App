@@ -7,10 +7,6 @@ const userPosts = (req, response) => {
 
 
   //sipho
-  
-
- 
-
  
     pool.query('SELECT * FROM posts ORDER BY id ASC', (error, results) => {
       if (error) {
@@ -19,18 +15,9 @@ const userPosts = (req, response) => {
       response.status(200).json(results.rows)
     })
 
-
-
-
-
   }
 
   
-
-
-
-
-
 
 module.exports = {
     userPosts,
