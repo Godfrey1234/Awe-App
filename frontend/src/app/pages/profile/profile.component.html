@@ -1,6 +1,8 @@
+<li *ngFor="let i of Posts">
 <app-navbar></app-navbar>
 <br>
 <br>
+
 <div class="container">
 <table>
   <br><br>
@@ -12,7 +14,7 @@
       </th>
 
       <th class="col1">
-          <span class="text">10k</span><br>
+          <span class="text">{{i.image}}</span><br>
           <span>posts</span>
 
       </th>
@@ -98,6 +100,7 @@
                   alt="image 1" class="w-100 rounded-3">
               </div>
             </div>
+          
 </div>
-
+</li>
 <app-footer></app-footer>
