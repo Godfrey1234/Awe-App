@@ -10,16 +10,16 @@ const pool = poolConnection;
 
 const getDetails = (req, res) => {
 
-    const {email} = req.body;
+    const id =parseInt(req.params.id);
   
-    if(email){
-  
+    
     //get all user details
-     pool.query('select * from aweusers where email = $1' ,[email],(error, results)=> {
+     pool.query('select * from aweusers where id = $1' ,[id],(error, results)=> {
        
        if (results.rowCount > 0) {
    
-         res.send(results)
+        console.log(results.rows);
+        res.status(200).json(results.rows);
        
        }else{
    
@@ -27,10 +27,7 @@ const getDetails = (req, res) => {
        }
        });
    
-     }else{
    
-       res.send('did not get email')
-     }
     
   }
   

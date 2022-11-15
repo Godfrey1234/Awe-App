@@ -1,60 +1,81 @@
 
+//api for uploading an image
+const cloudinary = require('cloudinary').v2
+const streamifier = require('streamifier')
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
+const dotenv = require('dotenv');
+const multer = require('multer')
 const poolConnection = require("../dbConn/dbConn");
 const pool = poolConnection;
 
-const multer = require('multer')
 
 
+dotenv.config({
+});
+
+cloudinary.config({
+    cloud_name: 'dp94yvsaw',
+    api_key: '217762934235786',
+    api_secret: 'HKRBihfL9I2GKywg5WuYsAebod8',
+});
 
 
-
-
-
-
-
-//for getting the image and destination
- const storage = multer.diskStorage({
-
-    destination:(req, file, callBack)=>{
-      callBack(null,'uploads')//path to save images
+const storage = new CloudinaryStorage({
+    cloudinary: cloudinary,
+    params: {
+      folder: "DEV",
     },
-    filename:(req,file,callBack)=>{
-      callBack(null,`Awe_${file.originalname}`)
-    }
-  
-
-  })
-
- var upload = multer({storage:storage})
-
- const image = (upload.single('file'),(req, res, next) => {
-
-   const file = req.body.file
-   const caption = req.body.caption
-   const user = req.body.user
-   
-   console.log(file)
-   console.log (caption)
+  });
 
 
-   if(!file){
-    res.send('please upload a file')
-   }
-   else{
-    res.send(file)
-   }
+const upload = multer({ storage: storage });
 
 
+
+
+const image =(upload.single("picture"),(req, res) => {
  
+  if(req.file.path){
+
+    console.log(req.file.path)
+    email = req.body.email
+    caption = req.body.caption
+    image=JSON.stringify(req.file.path)
+    console.log(image)
+    console.log(email)
+    console.log(caption)
+
+    pool.query('INSERT INTO posts (email,caption,image) VALUES ($1,$2,$3)',[email,caption,req.file.path],(error, results) => 
+        {
+    
+            if (error) 
+              {
+                res.send(`sytem error `);
+              }
+            else{
+            
+                res.send('successfully registered')
+               
+              
+            }  
+          
+    })
 
 
-})
+     
+  
+  }else{
+      res.send('upload')
+  }
+   
+
+  
+ });
+
 
 
 module.exports = {
- 
 
   image
- 
-  
+
 }    

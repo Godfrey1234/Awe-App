@@ -27,26 +27,28 @@ export class LoginComponent implements OnInit {
 
   onSubmit(data:any){
    
-    console.log(data)
-    this.tittle = JSON.stringify(data.email)
    //Add the User to the Database
    this.http.post('http://localhost:3000/login',data, {responseType:'text'})
    .subscribe((results)=>{
 
     
-     if(results == 'sucess'){
+     if(results === 'invalid login details'){
       
-     
-      this.router.navigate(['home']);
-      localStorage.setItem("token",this.tittle);
-      console.warn('sucess');
-      alert('successfully logged in');
-      
-     }
-     else{
       alert('invalid login details')
       console.log('invalid')
       
+     }
+     else{
+     
+      console.warn('sucess');
+      alert('successfully logged in');
+      //routing to home page after successfully loging in
+      this.router.navigate(['home']);
+      //token for saving logged in user data
+      localStorage.setItem("token",results);
+     
+
+
      }
      
    })

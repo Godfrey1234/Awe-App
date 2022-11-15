@@ -16,10 +16,8 @@ export class EditProfileComponent implements OnInit {
   constructor(private http:HttpClient) { }
 
   
-
+  //declaring variables 
   userDetails!: AweInterface[];
- 
-  
   email:any;
   value!:string
   user!:any;
@@ -29,21 +27,38 @@ export class EditProfileComponent implements OnInit {
  
 
   ngOnInit(): void {
+
+  
+    this.getUserID();
+    this.getDetails();
+
+
+  }
+
+  getUserID(){
+
+
     this.email = localStorage.getItem("token");
     this.value = JSON.parse(this.email)
     this.user = this.value
-    console.log(this.user)
-    this.getDetails();
-
+    this.userDetails = this.user;
+   
 
 
 
   }
 
 
+
   getDetails(){
-
-
+   
+  this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data)=>{
+   
+  })  
+  
+   
+     
+   
 
   }
 

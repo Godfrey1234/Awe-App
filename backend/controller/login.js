@@ -17,7 +17,7 @@ const login = (req, res) => {
        
        if (results.rowCount > 0) {
    
-         res.send('sucess')
+         res.send(results.rows)
        
        }else{
    

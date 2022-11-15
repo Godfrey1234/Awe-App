@@ -1,8 +1,12 @@
 export interface AweInterface {
-    useremail: string;
-    name: string;
+    id:number;
+    email: string;
+    fullname: string;
     surname: string;
-    password:string;
+    following:string;
+    followers:string;
+    posts:string;
+    profilePic:string;
 }
 
 
