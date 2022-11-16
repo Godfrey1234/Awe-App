@@ -5,9 +5,7 @@ const pool = poolConnection;
 //Register fuction 
 const userPosts = (req, response) => {
 
-
-  //sipho
- 
+  //sipho 
     pool.query('SELECT * FROM posts ORDER BY id ASC', (error, results) => {
       if (error) {
         throw error
@@ -16,8 +14,6 @@ const userPosts = (req, response) => {
     })
 
   }
-
-  
 
 module.exports = {
     userPosts,

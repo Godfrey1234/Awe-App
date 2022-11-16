@@ -30,18 +30,37 @@
         </tr>
     </table>
 
-    <form >
+    <!-- <form #userPost="ngForm"  (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
        
         <br>
-        <input type="file" class="form-control" id="customFile" />
+        <input type="file" class="form-control" id="customFile"  name="picture" ngModel/>
         <br>
+        
         <div class="mb-3">
-            <textarea placeholder="enter caption here" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea placeholder="enter caption here" name="caption"  ngModel class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         
         <div class="col-md-12 text-center">
-        <button type="button" class="btn btn-light">post</button>
+        <button type="submit" class="btn btn-light">post</button>
         </div>
+      </form> -->
+
+
+      <form [formGroup]="post" (ngSubmit)="onSubmit()" >
+
+       
+        <br>
+        <input type="file" class="form-control" id="customFile"  name="picture" formControlName="caption" />
+        <br>  <br>
+        <input type="file" class="form-control" id="customFile"  name="picture" formControlName="image" />
+        <br>
+        <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
+
+    
+
+
+        <button type="submit" class="btn btn-light">post</button>
+      
       </form>
 
  <br><br><br><br><br><br><br>

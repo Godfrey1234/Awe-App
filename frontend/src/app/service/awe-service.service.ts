@@ -17,6 +17,7 @@ export class AweServiceService {
   baseUrl = "http://localhost:3000/register"
   baseUrlL = "http://localhost:3000/login"
   url = "http://localhost:3000/getUserPosts"
+  uploadImageUrl ="http://localhost:3000/imageUpload"
 
   create(data: any) {
     return this.http.post(this.baseUrl, data);
@@ -25,6 +26,8 @@ export class AweServiceService {
   login(data: any){
     return this.http.post(this.baseUrlL, data);
   }
+
+
 
   getUserPosts(data: any){
     return this.http.get(this.url, data);
