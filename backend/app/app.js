@@ -41,17 +41,26 @@ const login = require('../controller/login')
 const register = require('../controller/register')
 const userDetails = require('../controller/userDetails')
 const getUserposts = require('../controller/getUserPosts')
+const countPosts = require('../controller/countPosts')
+const countFollowers = require('../controller/countFollowers')
+const countFollowing = require('../controller/countFollowing')
+const updateProfilePic = require('../controller/updateProfilePic')
+const Follow = require('../controller/Follow')
+const notification = require('../controller/notification')
+const updatePassword = require('../controller/updatePassword')
 
 //declare endopoints
 app.post('/register',register.createUser)
 app.post('/login',login.login)
 app.get('/userDetails/:id',userDetails.getDetails)
 app.post('/image',uploadImg.image)
-app.get('/getUserPosts',getUserposts.userPosts)
-
-
-
-
+app.get('/getUserPosts/',getUserposts.userPosts)
+app.get('/countPosts',countPosts.numPosts)
+app.get('/countFollowing',countFollowing.numFollowing)
+app.put('/updateProfilePic/',updateProfilePic.profilePicture)
+app.put('/Follow',Follow.follow)
+app.get('/notification',notification.notification)
+app.put('/updatePassword/:id',updatePassword.updatePass)
 
 
 

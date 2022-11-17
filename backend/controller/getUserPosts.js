@@ -6,6 +6,8 @@ const pool = poolConnection;
 const userPosts = (req, response) => {
 
   //sipho 
+
+  
     pool.query('SELECT * FROM posts ORDER BY id ASC', (error, results) => {
       if (error) {
         throw error

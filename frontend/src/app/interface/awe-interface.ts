@@ -6,7 +6,7 @@ export interface AweInterface {
     following:string;
     followers:string;
     posts:string;
-    profilePic:string;
+    profilepic:string;
 }
 
 

@@ -20,14 +20,22 @@
                 <div class="row"></div>
               </div>
 
-              <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center" *ngFor="let user of userDetails">
-                <img
-                  class="profilep"
-                  src="https://t4.ftcdn.net/jpg/02/24/86/95/360_F_224869519_aRaeLneqALfPNBzg0xxMZXghtvBXkfIA.jpg"
-                />
-                <p style="padding-top: 10px" class="AWE text-center mb-5"></p>
-                <input type="file" class="form-control" id="customFile"/>
+              <form  [formGroup]="post" (ngSubmit)="onClick()" style="text-align: center" *ngFor="let user of userDetails">
+                <img class="profilep" src="{{user.profilepic}}"/>
+                <br><br><br>
+
+              <input formControlName="file"  type="file" class="form-control" (change)="onFileChange($event)" required>
+
+               <div class="col-md-12 text-center">
                 <br>
+                <button  [disabled]="post.invalid" type="submit" class="btn btn-light">Update Picture</button>
+               </div> 
+              <br>
+              </form>
+
+              <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center" *ngFor="let user of userDetails">
+               
+             
                 <div class="form-outline mb-4">
            
 
@@ -69,6 +77,16 @@
                     disabled
                   />
 
+                  <label class="form-label" for="form3Example1cg">
+                     Old Password</label>
+                     <input  type="password"  
+                     class="form-control" 
+                     id="oldPassword"  
+                     ngModel   
+                     name="oldpass" 
+                     placeholder="password"
+                    required/>
+
                   <label class="form-label" for="form3Example4cg"
                     >password</label
                   >
@@ -97,10 +115,8 @@
                     />
                   </div>
                 </div>
-
-                <br />
                 <div class="d-flex justify-content-center">
-                  <button type="submit" class="btn btn-light" [routerLink]="['/profile']" routerLinkActive="router-link-active" >update</button>
+                  <button   [disabled]="userPost.invalid" type="submit" class="btn btn-light" >update</button>
                 </div>
               </form>
               <br />

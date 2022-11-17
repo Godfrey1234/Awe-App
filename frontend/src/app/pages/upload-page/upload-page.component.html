@@ -46,21 +46,22 @@
       </form> -->
 
 
-      <form [formGroup]="post" (ngSubmit)="onSubmit()" >
+      <form [formGroup]="post" (ngSubmit)="onSubmit()" NG_VALIDATORS *ngFor="let user of userDetails">
 
        
         <br>
-        <input type="file" class="form-control" id="customFile"  name="picture" formControlName="caption" />
-        <br>  <br>
-        <input type="file" class="form-control" id="customFile"  name="picture" formControlName="image" />
+        <input formControlName="file"  type="file" class="form-control" (change)="onFileChange($event)" required>
         <br>
-        <input formControlName="file" id="file" type="file" class="form-control" (change)="onFileChange($event)">
 
-    
+        <div class="mb-3">
+            <textarea placeholder="enter caption here" formControlName="caption" name="caption"   class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
 
 
-        <button type="submit" class="btn btn-light">post</button>
-      
+        <div class="col-md-12 text-center">
+            <button  [disabled]="post.invalid" type="submit" class="btn btn-light">post</button>
+        </div>
+        
       </form>
 
  <br><br><br><br><br><br><br>
