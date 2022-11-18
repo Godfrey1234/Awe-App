@@ -6,137 +6,36 @@
 
   
   <br><br><br><br>
-    <div class="row" ngFor="let dis of display" >
+    <div class="row" ngFor="let dis of display" *ngFor="let i of Posts" >
+      
       <div class="col-sm">
         <div class="card" style="width: 100%;">
             <div class="containerr">
                 <div class="row">
                   <div class="col-sm">
-                    <img class="profilePic" src="https://thumbs.dreamstime.com/b/blonde-woman-beautiful-hair-beautiful-woman-face-gorgeous-girl-blonde-woman-beautiful-hair-beautiful-woman-face-190738352.jpg" alt="">
-                    &nbsp;<span>Clement Mk</span>
+                    &nbsp;&nbsp;&nbsp;<img class="profilePic" src="{{i.profilepic}}" alt="">
+                    &nbsp;<span>{{i.fullname}} {{i.surname}}</span>
                     <span><i class="bi1 bi-three-dots-vertical"></i></span>
-                  </div>  
+                    
+                  </div> 
                 </div>
               </div>
-            <img class="card-img-top" src="https://i.guim.co.uk/img/media/60f0ee34570b489897bf1a62dbb22e2b2ee9869a/0_214_2500_1501/master/2500.jpg?width=465&quality=85&dpr=1&s=none" alt="Card image cap">
+              
+            <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
             <div class="card-body">
                 <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
                 <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                <strong>50 000 likes</strong>
+                <strong>50 000 likes</strong><br>
+                <span class="caption">{{i.caption}}</span>
+                
             </div>
+           
           </div>
       </div>
-      <div class="col-sm">
-        <div class="col-sm">
-            <div class="card" style="width: 100%;">
-                <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        <img class="profilePic" src="https://thumbs.dreamstime.com/b/blonde-woman-beautiful-hair-beautiful-woman-face-gorgeous-girl-blonde-woman-beautiful-hair-beautiful-woman-face-190738352.jpg" alt="">
-                        &nbsp;<span>Mabena GZ</span>
-                        <span><i class="bi1 bi-three-dots-vertical"></i></span>
-                      </div>  
-                    </div>
-                  </div>
-                <img class="card-img-top" src="https://i.guim.co.uk/img/media/60f0ee34570b489897bf1a62dbb22e2b2ee9869a/0_214_2500_1501/master/2500.jpg?width=465&quality=85&dpr=1&s=none" alt="Card image cap">
-                <div class="card-body">
-                    <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
-                    <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                    <strong>76 000 likes</strong>
-                </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-sm">
-        <div class="col-sm">
-            <div class="card" style="width: 100%;">
-                <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        <img class="profilePic" src="https://thumbs.dreamstime.com/b/blonde-woman-beautiful-hair-beautiful-woman-face-gorgeous-girl-blonde-woman-beautiful-hair-beautiful-woman-face-190738352.jpg" alt="">
-                        &nbsp;<span>Sipho Mk</span>
-                        <span><i class="bi1 bi-three-dots-vertical"></i></span>
-                      </div>  
-                    </div>
-                  </div>
-                <img class="card-img-top" src="https://i.guim.co.uk/img/media/60f0ee34570b489897bf1a62dbb22e2b2ee9869a/0_214_2500_1501/master/2500.jpg?width=465&quality=85&dpr=1&s=none" alt="Card image cap">
-                <div class="card-body">
-                    <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
-                    <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                    <strong>50 000 likes</strong>
-                </div>
-              </div>
-          </div>
-      </div>
-    </div>
-
-    <br>
-    <div class="row">
-      <div class="col-sm">
-        <div class="card" style="width: 100%;">
-            <div class="container">
-                <div class="row">
-                  <div class="col-sm">
-                    <img class="profilePic" src="https://thumbs.dreamstime.com/b/blonde-woman-beautiful-hair-beautiful-woman-face-gorgeous-girl-blonde-woman-beautiful-hair-beautiful-woman-face-190738352.jpg" alt="">
-                    &nbsp;<span>Clement Mk</span>
-                    <span><i class="bi1 bi-three-dots-vertical"></i></span>
-                  </div>  
-                </div>
-              </div>
-            <img class="card-img-top" src="https://i.guim.co.uk/img/media/60f0ee34570b489897bf1a62dbb22e2b2ee9869a/0_214_2500_1501/master/2500.jpg?width=465&quality=85&dpr=1&s=none" alt="Card image cap">
-            <div class="card-body">
-                <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
-                <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                <strong>50 000 likes</strong>
-            </div>
-          </div>
-      </div>
-      <div class="col-sm">
-        <div class="col-sm">
-            <div class="card" style="width: 100%;">
-                <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        <img class="profilePic" src="https://thumbs.dreamstime.com/b/blonde-woman-beautiful-hair-beautiful-woman-face-gorgeous-girl-blonde-woman-beautiful-hair-beautiful-woman-face-190738352.jpg" alt="">
-                        &nbsp;<span>Mabena GZ</span>
-                        <span><i class="bi1 bi-three-dots-vertical"></i></span>
-                      </div>  
-                    </div>
-                  </div>
-                <img class="card-img-top" src="https://i.guim.co.uk/img/media/60f0ee34570b489897bf1a62dbb22e2b2ee9869a/0_214_2500_1501/master/2500.jpg?width=465&quality=85&dpr=1&s=none" alt="Card image cap">
-                <div class="card-body">
-                    <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
-                    <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                    <strong>76 000 likes</strong>
-                </div>
-              </div>
-          </div>
-      </div>
-      <div class="col-sm">
-        <div class="col-sm">
-            <div class="card" style="width: 100%;">
-                <div class="container">
-                    <div class="row">
-                      <div class="col-sm">
-                        <img class="profilePic" src="https://thumbs.dreamstime.com/b/blonde-woman-beautiful-hair-beautiful-woman-face-gorgeous-girl-blonde-woman-beautiful-hair-beautiful-woman-face-190738352.jpg" alt="">
-                        &nbsp;<span>Sipho Mk</span>
-                        <span><i class="bi1 bi-three-dots-vertical"></i></span>
-                      </div>  
-                    </div>
-                  </div>
-                <img class="card-img-top" src="https://i.guim.co.uk/img/media/60f0ee34570b489897bf1a62dbb22e2b2ee9869a/0_214_2500_1501/master/2500.jpg?width=465&quality=85&dpr=1&s=none" alt="Card image cap">
-                <div class="card-body">
-                    <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
-                    <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                    <strong>50 000 likes</strong>
-                </div>
-              </div>
-          </div>
-      </div>
-    </div>
-    <app-footer></app-footer>
 </div>
 
+<br><br><br><br><br>
+<app-footer></app-footer>
 
 
 

@@ -21,7 +21,7 @@
               </div>
 
               <form  [formGroup]="post" (ngSubmit)="onClick()" style="text-align: center" *ngFor="let user of userDetails">
-                <img class="profilep" src="{{user.profilepic}}"/>
+                <img class="profilep" src = {{profilepicR}}/>
                 <br><br><br>
 
               <input formControlName="file"  type="file" class="form-control" (change)="onFileChange($event)" required>

@@ -82,7 +82,9 @@ export class UploadPageComponent implements OnInit {
     this.post.value.image  = res.url
     this.post.value.email = this.userDetails[0].email
     this.post.value.fullname = this.userDetails[0].fullname
-    
+    this.post.value.surname = this.userDetails[0].surname
+    this.post.value.profilepic = this.userDetails[0].profilepic
+
 
     console.log(this.post.value)
     this.http.post('http://localhost:3000/image',this.post.value,{responseType:'text'} )
@@ -90,7 +92,6 @@ export class UploadPageComponent implements OnInit {
 
       alert('post sucessfully sent')
    
-
  
     })
    }

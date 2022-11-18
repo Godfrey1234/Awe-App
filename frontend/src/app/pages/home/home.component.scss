@@ -13,9 +13,14 @@
 }
 
 .card-img-top{
-    height: 20rem;
+    height: 40%;
 }
 
 .row{
     gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.caption{
+    float: left;
 }

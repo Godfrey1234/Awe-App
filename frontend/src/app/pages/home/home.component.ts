@@ -53,8 +53,8 @@ export class HomeComponent implements OnInit {
 
   getDetails(){
    
-  this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data)=>{
-    console.log(data)
+  this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data:any)=>{
+ 
    
   })  
   }
@@ -66,6 +66,7 @@ export class HomeComponent implements OnInit {
 
       this.Posts=res;
       this.post=this.Posts.data;
+    
    
       console.log(res);
     

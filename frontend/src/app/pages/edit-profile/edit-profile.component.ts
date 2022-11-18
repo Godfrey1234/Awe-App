@@ -37,6 +37,7 @@ file:any
   email:any;
   value!:string
   user!:any;
+  profilepicR:string ='';
   
 
   
@@ -48,6 +49,7 @@ file:any
   
     this.getUserID();
     this.getDetails();
+   
     
 
 
@@ -58,6 +60,8 @@ file:any
 
     this.email = localStorage.getItem("token");
     this.value = JSON.parse(this.email)
+
+    //console.log(this.value)
     this.user = this.value
     this.userDetails = this.user;
    
@@ -70,8 +74,9 @@ file:any
 
   getDetails(){
    
-  this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data)=>{
+  this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data:any)=>{
     console.log(data)
+    this.profilepicR= data[0].profilepic
    
   })  
   
@@ -116,6 +121,7 @@ file:any
 
    if(res.url){
     
+    this.profilepicR = res.url
     this.post.value.profilepic  = res.url
     this.post.value.id = this.userDetails[0].id
     console.log(this.post.value)
@@ -123,9 +129,12 @@ file:any
     this.http.put('http://localhost:3000/updateProfilePic/',this.post.value,{responseType:'text'} )
     .subscribe((res:any)=>{
 
+     
+      
       if(res){
         this.getDetails()
         alert('profile picture changed successfully')
+        
       }
       
     
