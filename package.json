@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "@cloudinary/angular-5.x": "^1.5.3"
+    "@cloudinary/angular-5.x": "^1.5.3",
+    "ng2-search-filter": "^0.5.1"
   }
 }

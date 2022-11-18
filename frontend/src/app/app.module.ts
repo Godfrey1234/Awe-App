@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
-import { FooterComponent } from './components/footer/footer.component';
+// import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SearchPageComponent } from './pages/search-page/search-page.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
@@ -18,9 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { LogoComponent } from './components/logo/logo.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { LogoComponent } from './components/logo/logo.component';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    FooterComponent,
+
     HomeComponent,
     SearchPageComponent,
     NotificationsComponent,
@@ -42,6 +43,8 @@ import { LogoComponent } from './components/logo/logo.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    Ng2SearchPipeModule,
+    CommonModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,

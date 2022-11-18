@@ -21,3 +21,6 @@ describe('SearchPageComponent', () => {
     expect(component).toBeTruthy();
   });
 });
+
+
+
