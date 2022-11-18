@@ -11,11 +11,11 @@
   <tr>
       <th class="col">
         <img class="profilePic" src="{{profilePicture}}" alt="">
-        <br><div class="name"><p class="spName"> Godfrey mabena </p></div>
+        <br><div class="name"><p class="spName">{{fullname}} {{surname}} </p></div>
       </th>
 
       <th class="col1">
-          <span class="text">3</span><br>
+          <span class="text">{{numPosts}}</span><br>
           <span>posts</span>
 
       </th>
@@ -41,7 +41,7 @@
               <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
               <div class="card-body">
                 <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
-                <strong >{{i.likes}} <span>likes</span></strong>
+                <strong >{{i.likes}} <span>likes</span> <span class="deletei" (click)="onClick(i.id)"><i class="bi1 bi-trash "></i></span></strong>
               </div>
             </div> 
 </div>

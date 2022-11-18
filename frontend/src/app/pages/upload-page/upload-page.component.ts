@@ -32,6 +32,9 @@ export class UploadPageComponent implements OnInit {
    value!:string
    user!:any;
    file: any;
+   fullname!:string;
+   surname!:string;
+   profilepic!:string;
 
   constructor(private http:HttpClient) { }
 
@@ -52,8 +55,12 @@ export class UploadPageComponent implements OnInit {
     this.value = JSON.parse(this.email)
     this.user = this.value
     this.userDetails = this.user; 
-    this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data)=>{
-   
+    this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data:any)=>{
+    this.fullname= data[0].fullname
+    this.surname = data[0].surname
+    this.profilepic = data[0].profilepic;
+
+     
   })  
 }
 

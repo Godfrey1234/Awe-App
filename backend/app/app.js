@@ -48,6 +48,8 @@ const updateProfilePic = require('../controller/updateProfilePic')
 const Follow = require('../controller/Follow')
 const notification = require('../controller/notification')
 const updatePassword = require('../controller/updatePassword')
+const deletePosts = require('../controller/deletePosts')
+
 
 //declare endopoints
 app.post('/register',register.createUser)
@@ -55,14 +57,14 @@ app.post('/login',login.login)
 app.get('/userDetails/:id',userDetails.getDetails)
 app.post('/image',uploadImg.image)
 app.get('/getUserPosts/',getUserposts.userPosts)
-app.get('/countPosts',countPosts.numPosts)
-app.get('/countFollowing',countFollowing.numFollowing)
-app.get('/countFollowers',countFollowers.numFollowers)
+app.post('/countPosts/',countPosts.numPosts)
+app.get('/countFollowing/:id',countFollowing.numFollowing)
+app.get('/countFollowers/:id',countFollowers.numFollowers)
 app.put('/updateProfilePic/',updateProfilePic.profilePicture)
 app.put('/Follow',Follow.follow)
 app.get('/notification',notification.notification)
 app.put('/updatePassword/:id',updatePassword.updatePass)
-
+app.delete('/deletePosts/:id',deletePosts.deletePosts)
 
 
 

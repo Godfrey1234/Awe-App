@@ -22,6 +22,13 @@ export class ProfileComponent implements OnInit{
     Posts:any;
     post=[];
     profilePicture!: string;
+    surname!:string;
+    fullname!:string;
+    email!:string;
+    numPosts!:string;
+    id!:any;
+  
+
 
  constructor(private aweservice:AweServiceService, private http:HttpClient){}
 
@@ -31,13 +38,13 @@ export class ProfileComponent implements OnInit{
 
   this.getUserID();
   this.getDetails();
+ 
   
 
    this.aweservice.getUserPosts(this.Posts).subscribe(res=>{
 
    this.Posts=res;
    this.post=this.Posts.data;
-
    console.log(res);
    
    
@@ -64,8 +71,50 @@ export class ProfileComponent implements OnInit{
   this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data:any)=>{
    
     this.profilePicture= data[0].profilepic
-   
+    this.surname = data[0].surname
+    this.fullname = data[0].fullname
+    this.email = data[0].email
+    this.id = data[0].id
+
+
+  //get number of the users posts
+  console.log(this.email)
+   this.http.post('http://localhost:3000/countPosts/',this.email,)
+   .subscribe((results:any)=>{
+
+      console.log(results)
+      this.numPosts = results[0].count;
+      console.log(this.numPosts)
+   }) 
   })  
+
+
+ 
+
+
+
+
+  }
+
+
+
+ 
+
+
+
+
+  onClick(id:any){
+    
+    this.http.delete('http://localhost:3000/deletePosts/'+id, {responseType:'text'})
+    .subscribe((results)=>{
+      
+      console.log(results)
+      alert('post deleted');
+      this.getDetails();
+
+    })  
+
+     
   }
 }
 

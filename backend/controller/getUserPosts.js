@@ -6,9 +6,10 @@ const pool = poolConnection;
 const userPosts = (req, response) => {
 
   //sipho 
-
   
-    pool.query('SELECT * FROM posts ORDER BY id ASC', (error, results) => {
+  let status = "Active"
+  
+    pool.query('SELECT * FROM posts where status = $1 ORDER BY id DESC', [status],(error, results) => {
       if (error) {
         throw error
       }

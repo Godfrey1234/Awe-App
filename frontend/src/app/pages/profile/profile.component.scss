@@ -35,7 +35,9 @@ tr{
 }
 
 .spName{
-    font-size: 60%;
+    font-size: 100%;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 button{
@@ -54,3 +56,20 @@ button{
    
     height:1rem;
 }
+
+.deletei{
+
+    float: right;
+    margin-top: 0.1rem;
+    font-size: 20px;
+    color: red;
+   
+}
+
+.bi{
+    font-size: 20px;
+}
+
+
+
+
