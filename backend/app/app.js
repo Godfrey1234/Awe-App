@@ -49,6 +49,10 @@ const Follow = require('../controller/Follow')
 const notification = require('../controller/notification')
 const updatePassword = require('../controller/updatePassword')
 const deletePosts = require('../controller/deletePosts')
+const getAllUsers = require('../controller/getAllUsers')
+const getpost_one = require('../controller/getpost_one')
+const like = require('../controller/like')
+
 
 
 //declare endopoints
@@ -57,7 +61,7 @@ app.post('/login',login.login)
 app.get('/userDetails/:id',userDetails.getDetails)
 app.post('/image',uploadImg.image)
 app.get('/getUserPosts/',getUserposts.userPosts)
-app.post('/countPosts/',countPosts.numPosts)
+app.get('/countPosts/:email',countPosts.numPosts)
 app.get('/countFollowing/:id',countFollowing.numFollowing)
 app.get('/countFollowers/:id',countFollowers.numFollowers)
 app.put('/updateProfilePic/',updateProfilePic.profilePicture)
@@ -65,8 +69,9 @@ app.put('/Follow',Follow.follow)
 app.get('/notification',notification.notification)
 app.put('/updatePassword/:id',updatePassword.updatePass)
 app.delete('/deletePosts/:id',deletePosts.deletePosts)
-
-
+app.get('/getAllUsers',getAllUsers.getAllUsers)
+app.get('/getposts_one/:email',getpost_one.getpost_one)
+app.put('/like/:id',like.like)
 
 
 

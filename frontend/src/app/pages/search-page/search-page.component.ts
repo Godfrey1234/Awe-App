@@ -1,4 +1,7 @@
 import { Component, OnInit, Pipe } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { AweInterface } from 'src/app/interface/awe-interface';
+import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 @Component({
@@ -8,24 +11,43 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 })
 export class SearchPageComponent implements OnInit {
 
-  constructor() { }
+  //declaring variables 
+  userDetails!: AweInterface[];
+  
+  constructor(private http:HttpClient,private router : Router) { }
 
   ngOnInit(): void {
+    this.getDetails();
   }
 
-  title = 'Angular Search Using ng2-search-filter';
+
+
   searchText:any;
-  heroes = [
-    { id: 11, name: 'Mr. Nice', country: 'India' },
-    { id: 12, name: 'Narco' , country: 'USA'},
-    { id: 13, name: 'Bombasto' , country: 'UK'},
-    { id: 14, name: 'Celeritas' , country: 'Canada' },
-    { id: 15, name: 'Magneta' , country: 'Russia'},
-    { id: 16, name: 'RubberMan' , country: 'China'},
-    { id: 17, name: 'Dynama' , country: 'Germany'},
-    { id: 18, name: 'Dr IQ' , country: 'Hong Kong'},
-    { id: 19, name: 'Magma' , country: 'South Africa'},
-    { id: 20, name: 'Tornado' , country: 'Sri Lanka'}
-  ];
+
+  ///getAllUsers
+
+  getDetails(){
+   
+    this.http.get('http://localhost:3000/getAllUsers/').subscribe((data:any)=>{
+     this.userDetails = data;
+     console.log(data)
+    })  
+    }
+
+
+    onClick(id:any){
+
+      console.log(id)
+      localStorage.setItem('user_id',id)
+      this.router.navigate(['view_user']);
+
+    }
+
+    onFollow(id:any){
+      console.log(id)
+      
+
+    }
+
 
 }

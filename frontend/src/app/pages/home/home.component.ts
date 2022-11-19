@@ -2,6 +2,8 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AweInterface } from 'src/app/interface/awe-interface';
 import { AweServiceService } from 'src/app/service/awe-service.service';
+import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
+
 
 @Component({
   selector: 'app-home',
@@ -15,7 +17,7 @@ import { AweServiceService } from 'src/app/service/awe-service.service';
 export class HomeComponent implements OnInit {
   
 
-  constructor(private http:HttpClient,private aweservice:AweServiceService) { }
+  constructor(private http:HttpClient,private aweservice:AweServiceService, private router : Router) { }
 
   //declaring variables 
   userDetails!: AweInterface[];
@@ -24,6 +26,8 @@ export class HomeComponent implements OnInit {
   user!:any;
   Posts:any;
   post=[];
+  profilepic!:any;
+  like!:any;
 
 
  
@@ -54,9 +58,7 @@ export class HomeComponent implements OnInit {
   getDetails(){
    
   this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data:any)=>{
- 
-   
-  })  
+    })  
   }
 
 
@@ -66,11 +68,29 @@ export class HomeComponent implements OnInit {
 
       this.Posts=res;
       this.post=this.Posts.data;
-    
-   
       console.log(res);
     
   })
+}
+
+
+onLike(id:any){
+  console.log(id)
+  
+
+  this.http.put('http://localhost:3000/like/'+id, {Response})
+  .subscribe((data)=>{
+  if(data){
+    this.router.navigate(['home'])
+   
+  }
+   
+    
+ })
+
+
+
+
 }
 
 

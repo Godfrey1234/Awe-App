@@ -1,0 +1,52 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+<table>
+    <br><br>
+    <br><br>
+    <tr>
+        <th class="col">
+          <img class="profilePic" src="{{profilePicture}}" alt="">
+          <br><div class="name"><p class="spName">{{fullname}} {{surname}} </p></div>
+        </th>
+  
+        <th class="col1">
+            <span class="text">1</span><br>
+            <span>posts</span>
+  
+        </th>
+        <th class="col1">
+            <span class="text">1</span><br>
+            <span>followers</span>
+  
+        </th>
+        &nbsp;
+        <th class="col1">
+            <span class="text">3</span><br>
+            <span>following</span>
+        </th>
+  
+    </tr>
+  </table>
+  <br>
+
+
+  <div class="d-flex justify-content-between align-items-center mb-4" *ngFor="let i of userDetails">
+    <div class="card" style="width: 100wv;" >
+      <img class="card-img-top"  src="{{i.image}}" alt="Card image cap" >
+      <div class="card-body">
+        <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
+        <strong > <span> &nbsp; {{i.likes}} likes</span> <span class="deletei"></span></strong><br>
+        <span class="caption">{{i.caption}}</span>
+      </div>
+    </div> 
+
+  </div>
+
+  <br><br><br> <br><br><br>
+  
+
+
+
+<app-footer></app-footer>

@@ -21,10 +21,11 @@ const image = (req, res) => {
   console.log(surname)
   console.log(profilepic)
   let status ="Active"
+  var like = 0;
   
 
 
-    pool.query('INSERT INTO posts (email,caption,image,fullname,surname,profilepic,status) VALUES ($1,$2,$3,$4,$5,$6,$7)',[email,caption,image,fullname,surname,profilepic,status],(error, results) => 
+    pool.query('INSERT INTO posts (email,caption,image,fullname,surname,profilepic,status,likes) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)',[email,caption,image,fullname,surname,profilepic,status,like],(error, results) => 
         {
     
             if (error) 

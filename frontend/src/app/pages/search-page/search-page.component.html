@@ -1,28 +1,34 @@
 
+<app-navbar></app-navbar>
 
 <div class="container text-center">
-  <h1>{{title}}</h1>
+
+  <br><br><br><br><br>
+ 
 </div>
 <div class="container">
   <div class="row">
     <div class="search-hero">
-      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Explore">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="&#61442;  Search">
     </div>
-    <table class="">
-      <thead>
-      <tr>
-        <th>Id</th>
-        <th>Hero Name</th>
-        <th>Country</th>
-      </tr>
-      </thead>
+    <table class="userTable">
       <tbody>
-      <tr *ngFor="let hero of heroes  | filter: searchText">
-        <td>{{hero.id}}</td>
-        <td>{{hero.name}}</td>
-        <td>{{hero.country}}</td>
+      <tr *ngFor="let user of userDetails  | filter: searchText">
+        <br>
+        <td class="col1"><img class="profilePic" src="{{user.profilepic}}" (click)="onClick(user.id)">
+          <span> &nbsp; {{user.fullname}} {{user.surname}}</span>
+        </td>
+        <td class="col3"><button type="button" class="btn btn-secondary" (click)="onFollow(user.id)">follow</button></td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
+
+
+<br><br>
+
+
+
+
+<app-footer></app-footer>

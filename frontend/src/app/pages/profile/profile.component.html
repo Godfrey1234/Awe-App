@@ -36,14 +36,17 @@
 
 <button type="button" class="btn btn-light" [routerLink]="['/editprofile']" routerLinkActive="router-link-active" > Edit profile </button>
      <br>
-           <div class="d-flex justify-content-between align-items-center mb-4" *ngFor="let i of Posts">
+           <div class="d-flex justify-content-between align-items-center mb-4" *ngFor="let i of userDetails">
             <div class="card" style="width: 100wv;" >
-              <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
+              <img class="card-img-top"  src="{{i.image}}" alt="Card image cap">
               <div class="card-body">
                 <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
                 <strong >{{i.likes}} <span>likes</span> <span class="deletei" (click)="onClick(i.id)"><i class="bi1 bi-trash "></i></span></strong>
               </div>
             </div> 
 </div>
+
+
+
 <br><br><br><br>
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer> 

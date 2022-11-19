@@ -76,10 +76,20 @@ export class ProfileComponent implements OnInit{
     this.email = data[0].email
     this.id = data[0].id
 
+ //get user posts;
+ this.http.get('http://localhost:3000/getposts_one/'+this.email)
+ .subscribe((data:any)=>{
+
+     console.log(data)
+
+     this.userDetails = data
+     
+
+  }) 
 
   //get number of the users posts
   console.log(this.email)
-   this.http.post('http://localhost:3000/countPosts/',this.email,)
+   this.http.get('http://localhost:3000/countPosts/'+this.email,)
    .subscribe((results:any)=>{
 
       console.log(results)
@@ -88,6 +98,8 @@ export class ProfileComponent implements OnInit{
    }) 
   })  
 
+
+ 
 
  
 
@@ -109,8 +121,8 @@ export class ProfileComponent implements OnInit{
     .subscribe((results)=>{
       
       console.log(results)
-      alert('post deleted');
-      this.getDetails();
+      
+     
 
     })  
 

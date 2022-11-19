@@ -5,9 +5,10 @@ const pool = poolConnection;
 //Register fuction 
 const numPosts = (req, res) => {
 
-    const email = req.body.email
+    const email = req.params.email
+    let status = "Active"
 
-    pool.query('SELECT COUNT(*) from posts where email = $1',[email],(error, results)=> {
+    pool.query('SELECT COUNT(*) from posts where email = $1 AND status = $2',[email,status],(error, results)=> {
        
 
        if(error){

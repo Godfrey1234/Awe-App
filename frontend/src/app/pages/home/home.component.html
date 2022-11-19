@@ -23,9 +23,9 @@
               
             <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
             <div class="card-body">
-                <span class="ic"><i class="bi bi-heart"></i>&nbsp;</span>
+                <span class="ic"><i class="bi bi-heart" (click)="onLike(i.id)"></i>&nbsp;</span>
                 <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                <strong>50 000 likes</strong><br>
+                <strong>{{i.likes}} likes</strong><br>
                 <span class="caption">{{i.caption}}</span>
                 
             </div>
@@ -35,7 +35,7 @@
 </div>
 
 <br><br><br><br><br>
-<!-- <app-footer></app-footer> -->
+<app-footer></app-footer>
 
 
 

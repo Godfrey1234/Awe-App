@@ -22,6 +22,8 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { LogoComponent } from './components/logo/logo.component';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './components/footer/footer.component';
+import { ViewUserProfileComponent } from './pages/view-user-profile/view-user-profile.component';
 
 
 @NgModule({
@@ -29,7 +31,7 @@ import { CommonModule } from '@angular/common';
     AppComponent,
     LoginComponent,
     RegisterComponent,
-
+    FooterComponent,
     HomeComponent,
     SearchPageComponent,
     NotificationsComponent,
@@ -37,7 +39,8 @@ import { CommonModule } from '@angular/common';
     UploadPageComponent,
     NavbarComponent,
     EditProfileComponent,
-    LogoComponent
+    LogoComponent,
+    ViewUserProfileComponent
     
   ],
   imports: [
@@ -51,7 +54,8 @@ import { CommonModule } from '@angular/common';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path:'home',component:HomeComponent}
+      { path:'home',component:HomeComponent},
+      {path:'view_user',component:ViewUserProfileComponent}
     ]),
   ],
   providers: [],
