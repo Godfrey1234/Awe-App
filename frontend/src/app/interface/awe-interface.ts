@@ -10,8 +10,13 @@ export interface AweInterface {
     caption:string;
     likes:number;
     image:string;
+    message:string;
 }
 
+export interface notificationInterface {
+ 
+    message:string;
+}
 
 
 

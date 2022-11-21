@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AweInterface } from 'src/app/interface/awe-interface';
 import { AweServiceService } from 'src/app/service/awe-service.service';
 import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
+import { FormBuilder, FormControl, FormGroup, NgForm,Validators } from '@angular/forms';
 
 
 @Component({
@@ -19,6 +20,12 @@ export class HomeComponent implements OnInit {
 
   constructor(private http:HttpClient,private aweservice:AweServiceService, private router : Router) { }
 
+
+  
+  
+
+
+
   //declaring variables 
   userDetails!: AweInterface[];
   localStorageData:any;
@@ -28,7 +35,19 @@ export class HomeComponent implements OnInit {
   post=[];
   profilepic!:any;
   like!:any;
+  fullname!:string;
+  surname!:string;
+  email:any;
 
+
+  notification = {
+
+    fullname:"",
+    surname:"",
+    email:"",
+    id:0
+
+  }
 
  
 
@@ -58,6 +77,18 @@ export class HomeComponent implements OnInit {
   getDetails(){
    
   this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data:any)=>{
+    this.fullname= data[0].fullname
+    this.surname = data[0].surname
+    this.email = data[0].email
+
+    this.notification.fullname = data[0].fullname
+    this.notification.surname = data[0].surname
+    this.notification.email = data[0].email
+
+    
+
+  
+     
     })  
   }
 
@@ -75,15 +106,36 @@ export class HomeComponent implements OnInit {
 
 
 onLike(id:any){
-  console.log(id)
+
   
+
+  console.log(id)
+  console.log(this.fullname)
+  console.log(this.surname)
+  console.log(this.email)
 
   this.http.put('http://localhost:3000/like/'+id, {Response})
   .subscribe((data)=>{
-  if(data){
-    this.router.navigate(['home'])
+  
+    if(data){// if liked insert into notifications
+     
+      this.http.post('http://localhost:3000/notification/'+id,this.notification, {responseType:'text'})
+      .subscribe((results)=>{
+
+         if(results){
+           alert('liked');
+         } 
+
+
+      })
+
+    
    
   }
+
+
+
+
    
     
  })

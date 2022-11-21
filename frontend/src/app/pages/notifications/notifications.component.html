@@ -4,9 +4,9 @@
     <br><br><br><br>
    <h2>Notifications</h2>
     <table>
-        <tr>
-            <td>Godfrey Mabena liked your posts</td>
-            <td>yyy</td>
+        <tr *ngFor = "let noti of message">
+            <td>{{noti.message}}</td>
+          
         </tr>
     </table>
 </div>

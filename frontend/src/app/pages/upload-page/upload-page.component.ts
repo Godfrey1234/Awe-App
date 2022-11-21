@@ -35,6 +35,7 @@ export class UploadPageComponent implements OnInit {
    fullname!:string;
    surname!:string;
    profilepic!:string;
+   numPosts!:string;
 
   constructor(private http:HttpClient) { }
 
@@ -102,15 +103,12 @@ export class UploadPageComponent implements OnInit {
  
     })
    }
+
+
  
-    
-
-
-
-
-
    })
 
+   
 
 
 
