@@ -12,7 +12,7 @@ import { AweInterface } from 'src/app/interface/awe-interface';
 })
 export class UploadPageComponent implements OnInit {
 
-
+  public isVisible: boolean = false;
   post = new FormGroup({
       
       caption: new FormControl(''),
@@ -98,7 +98,8 @@ export class UploadPageComponent implements OnInit {
     this.http.post('http://localhost:3000/image',this.post.value,{responseType:'text'} )
     .subscribe((res:any)=>{
 
-      alert('post sucessfully sent')
+      this.isVisible=true;
+      setTimeout(()=>this.isVisible=false,1000)
    
  
     })

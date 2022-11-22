@@ -33,7 +33,7 @@ export class ProfileComponent implements OnInit{
  constructor(private aweservice:AweServiceService, private http:HttpClient){}
 
 
-
+ public isVisible: boolean = false;
   ngOnInit(): void {
 
   this.getUserID();
@@ -121,6 +121,9 @@ export class ProfileComponent implements OnInit{
     .subscribe((results)=>{
       
       console.log(results)
+
+      this.isVisible=true;
+      setTimeout(()=>this.isVisible=false,1000)
       
      
 

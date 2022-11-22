@@ -17,7 +17,7 @@ import { FormBuilder, FormControl, FormGroup, NgForm,Validators } from '@angular
 
 export class HomeComponent implements OnInit {
   
-
+  public isVisible: boolean = false;
   constructor(private http:HttpClient,private aweservice:AweServiceService, private router : Router) { }
 
 
@@ -107,7 +107,8 @@ export class HomeComponent implements OnInit {
 
 onLike(id:any){
 
-  
+  this.isVisible=true;
+  setTimeout(()=>this.isVisible=false,1000)
 
   console.log(id)
   console.log(this.fullname)
@@ -123,7 +124,7 @@ onLike(id:any){
       .subscribe((results)=>{
 
          if(results){
-           alert('liked');
+          
          } 
 
 

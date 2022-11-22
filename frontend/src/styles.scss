@@ -24,7 +24,25 @@
 }
 
 
+.updated  {
+    position: fixed;
+     top: 0;
+     right: 0.5rem;
+    border:1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.1rem;
+    padding: 2rem;
+    background: #05dade;
+    color: #ffffff;
+    box-shadow: 0 5px 10px -5px rgba(0, 0, 0, 0.5);
+    transition:  all 0.2s ease-in-out;
+    opacity: 0;
+    margin-top: 60px;
+  }
 
+  .visible {
+    opacity: 1;
+    transform: translateY(1.25rem);
+  }
 
 
 // Variable overrides first

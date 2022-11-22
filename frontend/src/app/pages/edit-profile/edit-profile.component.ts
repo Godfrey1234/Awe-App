@@ -14,7 +14,7 @@ import { AweServiceService } from 'src/app/service/awe-service.service';
 
 
 export class EditProfileComponent implements OnInit {
-
+  public isVisible: boolean = false;
   constructor(private http:HttpClient) { }
   
   //declaring form group
@@ -133,7 +133,8 @@ file:any
       
       if(res){
         this.getDetails()
-        alert('profile picture changed successfully')
+        this.isVisible=true;
+        setTimeout(()=>this.isVisible=false,1000)
         
       }
       
