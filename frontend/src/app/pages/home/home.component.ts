@@ -18,6 +18,11 @@ import { FormBuilder, FormControl, FormGroup, NgForm,Validators } from '@angular
 export class HomeComponent implements OnInit {
   
   public isVisible: boolean = false;
+  public unlike: boolean = false;
+  isLiked: boolean = false;
+  isLoggedIn!:Boolean;
+ 
+
   constructor(private http:HttpClient,private aweservice:AweServiceService, private router : Router) { }
 
 
@@ -31,12 +36,13 @@ export class HomeComponent implements OnInit {
   localStorageData:any;
   value!:string
   user!:any;
-  Posts:any;
+  Posts!:any;
   post=[];
   profilepic!:any;
   like!:any;
   fullname!:string;
   surname!:string;
+  likee_id:any;
   email:any;
 
 
@@ -45,10 +51,17 @@ export class HomeComponent implements OnInit {
     fullname:"",
     surname:"",
     email:"",
+    email_post_owner :"",
     id:0
 
   }
 
+
+  likee = {
+
+    likee_id:0
+
+  }
  
 
 
@@ -84,10 +97,9 @@ export class HomeComponent implements OnInit {
     this.notification.fullname = data[0].fullname
     this.notification.surname = data[0].surname
     this.notification.email = data[0].email
+    this.notification.id = data[0].id
+    this.likee.likee_id = data[0].id
 
-    
-
-  
      
     })  
   }
@@ -95,28 +107,60 @@ export class HomeComponent implements OnInit {
 
   getPosts(){
 
-    this.aweservice.getUserPosts(this.Posts).subscribe(res=>{
+    this.aweservice.getUserPosts(this.Posts).subscribe((res:any)=>{
 
       this.Posts=res;
-      this.post=this.Posts.data;
+      //this.post=res;
       console.log(res);
+
+      if(res){
+        this.notification.email_post_owner = res[0].email
+      }
     
   })
+
+
+ 
+
+ 
 }
 
 
-onLike(id:any){
+onUnlike(id:any,unliked:string){
+  this.isLiked = false;
 
-  this.isVisible=true;
-  setTimeout(()=>this.isVisible=false,1000)
-
-  console.log(id)
-  console.log(this.fullname)
-  console.log(this.surname)
-  console.log(this.email)
-
-  this.http.put('http://localhost:3000/like/'+id, {Response})
+  this.http.put('http://localhost:3000/unlike/'+id, {Response})
   .subscribe((data)=>{
+
+    this.getPosts();
+    this.like = true;
+  
+  
+    
+ })
+  
+  
+
+}
+
+getLikes(){
+
+ 
+
+}
+
+
+onLike(id:any,liked:string){
+  this.isLiked = true;
+ 
+ 
+
+this.http.put('http://localhost:3000/like/'+id,this.likee, {responseType:'text'})
+.subscribe((data)=>{
+
+
+    this.getPosts();
+    this.like = true;
   
     if(data){// if liked insert into notifications
      

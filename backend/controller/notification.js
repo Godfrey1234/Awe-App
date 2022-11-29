@@ -6,29 +6,48 @@ const notification = (req, res) => {
 
 
     const id = req.params.id
-    const {fullname,surname,email} = req.body; 
+    const {fullname,surname,email,email_post_owner} = req.body; 
     let message = "";
+
+    console.log(email_post_owner)
 
     message = fullname +" "+surname +" has liked your photo"
 
-    pool.query('INSERT INTO notification (post_id,fullname,surname,message,email) VALUES ($1,$2,$3,$4,$5)',[id,fullname,surname,message,email],(error, results) => 
-    {
 
-        if (error) 
-          {
-            res.send(`sytem error `);
-          }
-        else{
-        
-            res.send('notification sent')
-          
-        }  
+    if(email && id){
+  
+      //checking if user already has an account
+     pool.query('select * from notification where email = $1 And post_id = $2' ,[email,id],(error, results)=> {
        
-            
-    });
-    
-
-
+       if (results.rowCount > 0) {
+   
+        res.send('already liked the post')
+       
+       }else{
+   
+        pool.query('INSERT INTO notification (post_id,fullname,surname,message,email,email_post_owner ) VALUES ($1,$2,$3,$4,$5,$6)',[id,fullname,surname,message,email,email_post_owner ],(error, results) => 
+              {
+          
+                  if (error) 
+                    {
+                      res.send(`sytem error `);
+                    }
+                  else{
+                  
+                      res.send('notification sent')
+                    
+                  }  
+                 
+                      
+              });
+       }
+       });
+   
+     }else{
+   
+       res.send('not getting user logged in user email or post id')
+     }
+   
 
 
 
@@ -43,7 +62,7 @@ const getnotification = (req, res) => {
     const email = req.params.email
 
    
-    pool.query('SELECT * FROM notification where email = $1 ORDER BY id DESC', [email],(error, results) => {
+    pool.query('SELECT * FROM notification where email_post_owner  = $1 ORDER BY id DESC', [email],(error, results) => {
         
         if (error) {
           throw error

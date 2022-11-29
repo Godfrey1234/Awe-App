@@ -124,6 +124,7 @@ file:any
     this.profilepicR = res.url
     this.post.value.profilepic  = res.url
     this.post.value.id = this.userDetails[0].id
+    this.post.value.email = this.userDetails[0].email
     console.log(this.post.value)
     
     this.http.put('http://localhost:3000/updateProfilePic/',this.post.value,{responseType:'text'} )

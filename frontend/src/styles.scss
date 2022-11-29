@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
 /* You can add global styles to this file, and also import other style files */
+
+// Then import Bootstrap
+@import "../node_modules/bootstrap/scss/bootstrap";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
 .AWE{
     font-size: 42px;
 }
@@ -43,6 +49,10 @@
     opacity: 1;
     transform: translateY(1.25rem);
   }
+  body
+  {
+    font-family: 'Poppins';
+  }
 
 
 // Variable overrides first
@@ -51,6 +61,3 @@ $enable-shadows: true;
 $prefix: "mo-";
 
 
-// Then import Bootstrap
-@import "../node_modules/bootstrap/scss/bootstrap";
-@import "~bootstrap-icons/font/bootstrap-icons.css";

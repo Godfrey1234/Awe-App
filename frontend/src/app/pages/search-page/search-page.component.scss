@@ -8,8 +8,10 @@
 }
 
 .profilePic{
-    width:  30%;
-    height: 20%;
+    width:  3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    border: solid 2px rgb(113, 113, 113);
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
 }
@@ -27,4 +29,10 @@
 .userTable{
     margin-left: 1rem;
     margin-top: 1rem;
+}
+
+button{
+    width: 80%;
+    margin-left: 0rem;
+    border-radius: 1rem;
 }

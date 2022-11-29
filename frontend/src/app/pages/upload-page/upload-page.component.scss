@@ -1,9 +1,11 @@
 .profilePic{
-    width:  75%;
-    height: 40%;
-    border-radius: 48%;
+    width:  4rem;
+    height: 4rem;
+    border-radius: 4rem;
+    border: solid 2px rgb(113, 113, 113);
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-left: 1rem;
 }
 
 span{
@@ -35,14 +37,18 @@ tr{
 }
 
 .spName{
-    font-size: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
+    font-size: 70%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 100%;
 }
+
+
 .btn{
 
 
 width: 13rem;
+
 
 
 

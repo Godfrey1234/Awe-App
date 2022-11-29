@@ -11,22 +11,26 @@
       
       <div class="col-sm">
         <div class="card" style="width: 100%;">
-            <div class="containerr">
-                
+          
+          <div class="containerr">
+              <br>      
            <img class="profilePic" src="{{i.profilepic}}" alt="">
-           <span  class="sp">{{i.fullname}} {{i.surname}}<i class="bie bi-download"></i></span>
-           
-                   
-               
-                
-              </div>
+           <span  class="sp">{{i.fullname}} {{i.surname}} <span><i class="bie bi-download"></i></span></span>
+        
+           </div>
+
             <div class="imgPost">
+              <br>
               <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
 
             </div>
            
             <div class="card-boy">
-                <span class="ic"><i class="bi bi-heart" (click)="onLike(i.id)"></i></span>
+                
+              <span class="ic" [hidden]="isLiked" (click)="onLike(i.id,'true')"><i class="bi bi-heart"  ></i></span>
+              <span class="ic2" *ngIf ="isLiked" (click)="onUnlike(i.id,'false')"><i class="bi bi-heart-fill" ></i></span>
+               
+
                 <strong>&nbsp;&nbsp;{{i.likes}} likes</strong><br> 
                 <span class="caption">{{i.caption}}</span>
                 
@@ -36,13 +40,15 @@
       </div>
 </div>
 
-<br><br><br><br><br>
+<br><br><br>
 <app-footer></app-footer>
 
 
 <div class="updated" [class.visible]="isVisible">
   <i class="fa fa-exclamation-circle" style="font-size: 20px;"></i>liked
  </div>
+
+
 
 
 

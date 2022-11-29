@@ -74,7 +74,8 @@ app.delete('/deletePosts/:id',deletePosts.deletePosts)
 app.get('/getAllUsers',getAllUsers.getAllUsers)
 app.get('/getposts_one/:email',getpost_one.getpost_one)
 app.put('/like/:id',like.like)
-
+app.put('/unlike/:id',like.unlike)
+app.get('/like/:id',like.getlike)
 
 
 

@@ -28,7 +28,7 @@
 
                <div class="col-md-12 text-center">
                 <br>
-                <button  [disabled]="post.invalid" type="submit" class="btn btn-light">Update Picture</button>
+                <button  [disabled]="post.invalid" type="submit" class="btn btn-secondary">Update Picture</button>
                </div> 
               <br>
               </form>
@@ -36,7 +36,7 @@
               <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center" *ngFor="let user of userDetails">
                
              
-                <div class="form-outline mb-4">
+               <div class="form-outline mb-4">
            
 
                   <label class="form-label" for="form3Example1cg">Email</label>
@@ -116,7 +116,7 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-center">
-                  <button   [disabled]="userPost.invalid" type="submit" class="btn btn-light" >update</button>
+                  <button   [disabled]="userPost.invalid" type="submit" class="btn btn-secondary">update</button>
                 </div>
               </form>
               <br />
@@ -127,7 +127,7 @@
     </div>
   </div>
 </section>
-<br><br>
+<br><br><br><br>
  <app-footer></app-footer> 
 
  <div class="updated" [class.visible]="isVisible">

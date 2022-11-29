@@ -28,8 +28,9 @@
 }
 
 .bie{
-    margin-left: 10rem;
+  
     font-size: 1.5rem;
+   
 }
 
 .card-img-top{
@@ -41,6 +42,8 @@
 
 .card{
     border: none;
+    box-shadow: 0px 0px 1px rgba(68, 68, 68, 0.481);
+   
 }
 
 .card-boy{
@@ -67,7 +70,9 @@
 
    .sp{
         position: absolute;
-        font-size: 1.2rem;
+        font-size: 1rem;
+        font-family: 'Poppins';
+        font-weight: bold;
    
     }
 
@@ -78,7 +83,17 @@
       
     }
   
+    .bie{
+  
+        font-size: 1.4rem;
+        margin-left: 9rem;
+        overflow: hidden;
+       
+    }
    
+    .ic2{
+        color: red;
+    }
      
 
 }
