@@ -11,7 +11,7 @@ body {
   /* header */
   
   .header {
-    background-color: #fff;
+    background-color:  #ff4f4f;
     box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
     position: fixed;
     width: 100%;
@@ -67,7 +67,7 @@ body {
   }
   
   .header .menu-icon .navicon {
-    background: #333;
+    background: white;
     display: block;
     height: 2px;
     position: relative;
@@ -82,7 +82,7 @@ body {
   }
   .header .menu-icon .navicon:before,
   .header .menu-icon .navicon:after {
-    background: #333;
+    background: white;
     content: '';
     display: block;
     height: 100%;
@@ -151,9 +151,10 @@ body {
   }
   
   .logo{
-    width: 7rem;
+    width: 8rem;
     height: 3rem;
     margin-top: 0.5rem;
+    
   }
 
 

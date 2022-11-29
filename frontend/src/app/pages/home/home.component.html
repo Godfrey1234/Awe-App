@@ -7,26 +7,27 @@
   
   <br><br><br><br>
   
-    <div class="row" ngFor="let dis of display" *ngFor="let i of Posts" >
+    <div class="row" ngFor="let dis of display" *ngFor="let i of Posts"  >
       
       <div class="col-sm">
         <div class="card" style="width: 100%;">
             <div class="containerr">
-                <div class="row">
-                  <div class="col-sm">
-                    &nbsp;&nbsp;&nbsp;<img class="profilePic" src="{{i.profilepic}}" alt="">
-                    &nbsp;<span>{{i.fullname}} {{i.surname}}</span>
-                    <span><i class="bi1 bi-three-dots-vertical"></i></span>
-                    
-                  </div> 
-                </div>
+                
+           <img class="profilePic" src="{{i.profilepic}}" alt="">
+           <span  class="sp">{{i.fullname}} {{i.surname}}<i class="bie bi-download"></i></span>
+           
+                   
+               
+                
               </div>
-              
-            <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
-            <div class="card-body">
-                <span class="ic"><i class="bi bi-heart" (click)="onLike(i.id)"></i>&nbsp;</span>
-                <span class="ic"><i class="bi bi-chat"></i>&nbsp;</span>
-                <strong>{{i.likes}} likes</strong><br>
+            <div class="imgPost">
+              <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
+
+            </div>
+           
+            <div class="card-boy">
+                <span class="ic"><i class="bi bi-heart" (click)="onLike(i.id)"></i></span>
+                <strong>&nbsp;&nbsp;{{i.likes}} likes</strong><br> 
                 <span class="caption">{{i.caption}}</span>
                 
             </div>
