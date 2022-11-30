@@ -114,7 +114,7 @@ export class HomeComponent implements OnInit {
       console.log(res);
 
       if(res){
-        this.notification.email_post_owner = res[0].email
+        this.notification.email_post_owner = res[0].email  //bug here if no posts it cannot get email
       }
     
   })
