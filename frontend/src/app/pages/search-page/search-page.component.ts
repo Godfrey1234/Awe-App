@@ -4,6 +4,7 @@ import { AweInterface } from 'src/app/interface/awe-interface';
 import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxSpinnerService } from 'ngx-spinner';
 @Component({
   selector: 'app-search-page',
   templateUrl: './search-page.component.html',
@@ -14,9 +15,13 @@ export class SearchPageComponent implements OnInit {
   //declaring variables 
   userDetails!: AweInterface[];
   
-  constructor(private http:HttpClient,private router : Router) { }
+  constructor(private http:HttpClient,private router : Router,private spinnerService: NgxSpinnerService) { }
 
   ngOnInit(): void {
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); 
     this.getDetails();
   }
 

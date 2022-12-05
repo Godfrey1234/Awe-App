@@ -4,6 +4,7 @@ import { AweInterface } from 'src/app/interface/awe-interface';
 import { AweServiceService } from 'src/app/service/awe-service.service';
 import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, NgForm,Validators } from '@angular/forms';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class HomeComponent implements OnInit {
   isLoggedIn!:Boolean;
  
 
-  constructor(private http:HttpClient,private aweservice:AweServiceService, private router : Router) { }
+  constructor(private http:HttpClient,private aweservice:AweServiceService, private router : Router,private spinnerService: NgxSpinnerService) { }
 
 
   
@@ -69,6 +70,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+  
+      this.spinnerService.show();
+  
+      setTimeout(() => {
+        this.spinnerService.hide();
+      }, 500); // 5 seconds
     
     this.getUserID();
     this.getDetails();

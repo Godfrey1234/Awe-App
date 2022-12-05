@@ -8,6 +8,7 @@ import { UploadPageComponent } from './pages/upload-page/upload-page.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { GuardService } from './service/guard.service';
 //import { Component, ViewChild } from '@angular/core';
 //import { MdbTableDirective } from 'mdb-angular-ui-kit/table';
 
@@ -15,12 +16,12 @@ const routes: Routes = [
 
   { path: '', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  {path:'home',component:HomeComponent},
-  {path:"profile",component:ProfileComponent},
-  {path:"search",component:SearchPageComponent},
-  {path:"upload",component:UploadPageComponent},
-  {path:"notifications",component:NotificationsComponent},
-  {path:"editprofile",component:EditProfileComponent}
+  {path:'home',component:HomeComponent,canActivate:[GuardService]},
+  {path:"profile",component:ProfileComponent,canActivate:[GuardService]},
+  {path:"search",component:SearchPageComponent,canActivate:[GuardService]},
+  {path:"upload",component:UploadPageComponent,canActivate:[GuardService]},
+  {path:"notifications",component:NotificationsComponent,canActivate:[GuardService]},
+  {path:"editprofile",component:EditProfileComponent,canActivate:[GuardService]}
 
 
 ];

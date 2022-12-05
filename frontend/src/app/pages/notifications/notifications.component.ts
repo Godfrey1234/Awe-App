@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AweInterface } from 'src/app/interface/awe-interface';
 import { notificationInterface } from 'src/app/interface/awe-interface';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -11,7 +12,7 @@ import { notificationInterface } from 'src/app/interface/awe-interface';
 })
 export class NotificationsComponent implements OnInit {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private spinnerService: NgxSpinnerService ) { }
 
   //declaring variables 
   userDetails!: AweInterface[];
@@ -27,10 +28,20 @@ export class NotificationsComponent implements OnInit {
   email:any;
   message!: notificationInterface[];
 
+  public showSpinner(): void {
+    this.spinnerService.show();
+
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 2000); // 5 seconds
+  }
 
   ngOnInit(): void {
   
-    
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 2000); 
     this.getNotification();
   }
 
