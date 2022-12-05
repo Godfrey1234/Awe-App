@@ -8,6 +8,7 @@ import { UploadPageComponent } from './pages/upload-page/upload-page.component';
 import { NotificationsComponent } from './pages/notifications/notifications.component';
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { FriendsComponent } from './pages/friends/friends.component';
 //import { Component, ViewChild } from '@angular/core';
 //import { MdbTableDirective } from 'mdb-angular-ui-kit/table';
 
@@ -20,7 +21,9 @@ const routes: Routes = [
   {path:"search",component:SearchPageComponent},
   {path:"upload",component:UploadPageComponent},
   {path:"notifications",component:NotificationsComponent},
-  {path:"editprofile",component:EditProfileComponent}
+  {path:"editprofile",component:EditProfileComponent},
+  {path:"friends",component:FriendsComponent}
+
 
 
 ];

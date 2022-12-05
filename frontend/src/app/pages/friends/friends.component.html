@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+
+
+<div class="container">
+
+    <br>
+    <br>
+    <table>
+      <br><br>
+      <br><br>
+      <tr>
+          <th class="col">
+            <img class="profilePic" src="{{profilePicture}}" alt="">
+            <br><div class="name"><p class="spName">{{fullname}} {{surname}} </p></div>
+          </th>
+    
+          <th class="col1">
+              <span class="text">{{numPosts}}</span><br>
+              <span>posts</span>
+    
+          </th>
+          <th class="col1"  *ngFor ="let c of cFrineds">
+              <span class="text">{{c.count}}</span><br>
+              <span>friends</span>
+    
+          </th>
+          &nbsp;
+          <th class="col1">
+              
+          </th>
+    
+      </tr>
+    </table>
+
+    <br>
+    
+   <h2>Friends</h2>
+    <table class="t">
+        <tr *ngFor ="let f of friend">
+            
+            <th>{{f.friend_name}} &nbsp; {{f.friend_surname}}</th>
+            <th><img class="img" src="" alt=""></th>
+        </tr>
+       
+    </table>
+</div>
+
+<app-footer></app-footer>

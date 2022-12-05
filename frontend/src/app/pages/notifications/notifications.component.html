@@ -4,13 +4,20 @@
     <br><br><br><br>
    <h2>Notifications</h2>
     <table>
-        <tr *ngFor = "let noti of message">
-            <td>{{noti.message}}</td>
+        <tr *ngFor = "let noti of message" >
+      
+            <th>{{noti.message}}</th>
+            <th><img class="img" src="{{noti.image}}" alt=""></th>
+        
           
+        </tr>
+
+        <tr *ngFor = "let noti of followI" >
+            <th>{{noti.message}}</th>
+            <th><button (click)="onFollow(noti.friend_id)" type="button" class="btn btn-secondary">{{noti.status}}</button></th>
         </tr>
     </table>
 </div>
-
 
 
 

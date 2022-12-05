@@ -61,6 +61,19 @@ export class ViewUserProfileComponent implements OnInit {
           console.log(data)
 
           this.userDetails = data
+
+
+
+           //get number of the users posts
+          console.log(this.email)
+          this.http.get('http://localhost:3000/countPosts/'+this.email,)
+          .subscribe((results:any)=>{
+
+          console.log(results)
+          this.numPosts = results[0].count;
+          console.log(this.numPosts)
+
+    }) 
           
     
        }) 
@@ -68,6 +81,10 @@ export class ViewUserProfileComponent implements OnInit {
    
 
     })  
+
+
+
+    
 
 
     

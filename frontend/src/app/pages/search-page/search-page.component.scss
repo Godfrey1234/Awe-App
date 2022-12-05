@@ -1,38 +1,50 @@
-.card-img-top{
-    height: 8rem;
-    border-radius: 1rem;
-}
 
-.card{
-    border-radius: 1rem;
-}
 
-.profilePic{
-    width:  3rem;
-    height: 3rem;
-    border-radius: 3rem;
-    border: solid 2px rgb(113, 113, 113);
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-}
 
-.col1{
-    width:70%;
-}
+@media (min-width: 0px) and (max-width: 768px) { 
 
-.col3{
+    .card-img-top{
+        height: 8rem;
+        border-radius: 1rem;
+    }
+    
+    .card{
+        border-radius: 1rem;
+    }
+    
+    .profilePic{
+        width:  3rem;
+        height: 3rem;
+        border-radius: 3rem;
+        border: solid 2px rgb(113, 113, 113);
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .col1{
+        width:70%;
+    }
+    
+    .col3{
+    
+        width: 30%;
+        margin-left: 0%;
+    }
+    
+    .userTable{
+        margin-left: 1rem;
+        margin-top: 1rem;
+    }
+    
+    button{
+        width: 80%;
+        margin-left: 0rem;
+        border-radius: 1rem;
+    }
+    
 
-    width: 30%;
-    margin-left: 0%;
-}
 
-.userTable{
-    margin-left: 1rem;
-    margin-top: 1rem;
-}
 
-button{
-    width: 80%;
-    margin-left: 0rem;
-    border-radius: 1rem;
+
+
 }

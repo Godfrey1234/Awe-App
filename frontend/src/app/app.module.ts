@@ -24,6 +24,8 @@ import { LogoComponent } from './components/logo/logo.component';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewUserProfileComponent } from './pages/view-user-profile/view-user-profile.component';
+import { FriendsComponent } from './pages/friends/friends.component';
+
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { ViewUserProfileComponent } from './pages/view-user-profile/view-user-pr
     NavbarComponent,
     EditProfileComponent,
     LogoComponent,
-    ViewUserProfileComponent
+    ViewUserProfileComponent,
+    FriendsComponent
     
   ],
   imports: [

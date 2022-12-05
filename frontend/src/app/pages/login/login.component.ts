@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
    .subscribe((results)=>{
 
     
-     if(results === 'invalid login details'){
+     if(results === 'invalid login details' || results === 'enter username and password'){
       
       alert('invalid login details')
       console.log('invalid')
