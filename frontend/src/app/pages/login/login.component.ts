@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AweServiceService } from 'src/app/service/awe-service.service';
 import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 import { NgForm } from '@angular/forms';
+import { AuthService } from 'src/app/service/auth.service';
 
 
 @Component({
@@ -12,8 +13,9 @@ import { NgForm } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
   tittle: any;
+  spinnerService: any;
 
-  constructor(private http:HttpClient, private router : Router) { 
+  constructor(private http:HttpClient, private router : Router,private authService:AuthService) { 
    
     
 
@@ -21,12 +23,20 @@ export class LoginComponent implements OnInit {
   }
 
   
+  public showSpinner(): void {
+    this.spinnerService.show();
 
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 2000); // 5 seconds
+  }
   ngOnInit(): void {
+    
   } 
 
   onSubmit(data:any){
-   
+  
+  console.log(data)
    //Add the User to the Database
    this.http.post('http://localhost:3000/login',data, {responseType:'text'})
    .subscribe((results)=>{
@@ -39,7 +49,7 @@ export class LoginComponent implements OnInit {
       
      }
      else{
-     
+      this.authService.login();
       console.warn('sucess');
       alert('successfully logged in');
       //routing to home page after successfully loging in

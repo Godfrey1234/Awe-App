@@ -71,6 +71,29 @@ export class FriendsComponent implements OnInit {
     
   }  
 
+  onFollow(id:any){
+
+    console.log(id)
+
+
+    this.http.put('http://localhost:3000/follow/'+id, {responseType:'text'})
+    .subscribe((results)=>{
+      
+      console.log(results)
+
+     
+      
+     
+
+    })  
+
+     
+  
+
+
+
+
+  }
 
   getUserID(){
     this.localStorageData = localStorage.getItem("token");
