@@ -5,6 +5,8 @@ import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 import { FormBuilder, FormControl, FormGroup, NgForm,Validators } from '@angular/forms';
 
 
+import { AuthService } from 'src/app/service/auth.service';
+
 
 @Component({
   selector: 'app-login',
@@ -13,6 +15,7 @@ import { FormBuilder, FormControl, FormGroup, NgForm,Validators } from '@angular
 })
 export class LoginComponent implements OnInit {
   tittle: any;
+  spinnerService: any;
 
   public isVisible: boolean = false;
 
@@ -26,7 +29,8 @@ export class LoginComponent implements OnInit {
     
   });
 
-  constructor(private http:HttpClient, private router : Router) { 
+  
+  constructor(private http:HttpClient, private router : Router,private authService:AuthService) { 
    
     
 
@@ -35,12 +39,22 @@ export class LoginComponent implements OnInit {
 
 
   
+  public showSpinner(): void {
+    this.spinnerService.show();
 
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 2000); // 5 seconds
+  }
   ngOnInit(): void {
+    
   } 
 
   onSubmit(){
    
+
+  
+
    //Add the User to the Database
    this.http.post('http://localhost:3000/login',this.loginForm.value, {responseType:'text'})
    .subscribe((results)=>{
@@ -53,7 +67,7 @@ export class LoginComponent implements OnInit {
       
      }
      else{
-     
+      this.authService.login();
       console.warn('sucess');
       alert('successfully logged in');
       //routing to home page after successfully loging in

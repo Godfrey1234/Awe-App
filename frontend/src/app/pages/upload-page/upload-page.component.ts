@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { UploadImageService } from 'src/app/service/upload-image.service';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AweInterface } from 'src/app/interface/awe-interface';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { countfriendsInterface } from 'src/app/interface/awe-interface';
 
 
@@ -44,13 +45,16 @@ export class UploadPageComponent implements OnInit {
    id!:any;
    em!:any;
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private spinnerService: NgxSpinnerService) { }
 
  
 
 
   ngOnInit(): void {
-    
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); 
     this.getDetails()//getting logged in user details
   }
 

@@ -3,6 +3,7 @@ import { Observable, Subscription } from 'rxjs';
 import { AweServiceService } from 'src/app/service/awe-service.service';
 import { AweInterface } from 'src/app/interface/awe-interface';
 import { HttpClient } from '@angular/common/http';
+import { NgxSpinnerService } from 'ngx-spinner';
 import { countfriendsInterface } from 'src/app/interface/awe-interface';
 
 
@@ -29,16 +30,24 @@ export class ProfileComponent implements OnInit{
     email!:string;
     numPosts!:string;
     id!:any;
+
     countfid!:any
   
 
 
- constructor(private aweservice:AweServiceService, private http:HttpClient){}
+ constructor(private aweservice:AweServiceService, private http:HttpClient,private spinnerService: NgxSpinnerService){}
 
 
  public isVisible: boolean = false;
   ngOnInit(): void {
 
+
+    this.spinnerService.show();
+    setTimeout(() => {
+      this.spinnerService.hide();
+    }, 1000); 
+    
+    
   this.getUserID();
   this.getDetails();
   this.countFriends()
