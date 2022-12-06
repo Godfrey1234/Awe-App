@@ -27,6 +27,9 @@ import { ViewUserProfileComponent } from './pages/view-user-profile/view-user-pr
 import{BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { GuardService } from './service/guard.service';
 import { AuthService } from './service/auth.service';
+import { FriendsComponent } from './pages/friends/friends.component';
+
+
 
 @NgModule({
   declarations: [
@@ -42,7 +45,8 @@ import { AuthService } from './service/auth.service';
     NavbarComponent,
     EditProfileComponent,
     LogoComponent,
-    ViewUserProfileComponent
+    ViewUserProfileComponent,
+    FriendsComponent
     
   ],
   imports: [

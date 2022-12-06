@@ -12,20 +12,20 @@
                 <br><div class="name"><span class="spName"> {{fullname}}  {{surname}} </span></div>
             </th>
             <th class="col1">
-                <span class="text">1</span><br>
+                <span class="text">{{numPosts}}</span><br>
                 <span>posts</span>
                
             </th>
-            <th class="col1">
-                <span class="text">2</span><br>
-                <span>followers</span>
+            <th class="col1"  *ngFor ="let c of cFrineds">
+                <span class="text">{{c.count}}</span><br>
+                <span>friends</span>
                
             </th>
             &nbsp;
-            <th class="col1">
-                <span class="text">3</span><br>
-                <span>following</span>
-            </th>
+            <th class="col1" >
+                <span class="text"><i class="biw bi-bookmark-plus-fill"></i></span><br>
+                <p class="text mt-5"><a [routerLink]="['/search']" routerLinkActive="router-link-active" class="fw-bold text-body"><u class="text" style="font-size:0.8rem;">Add Friends</u></a></p><br>
+         </th>
            
         </tr>
     </table>
@@ -62,4 +62,4 @@
 
 <div class="updated" [class.visible]="isVisible">
     <i class="fa fa-exclamation-circle" style="font-size: 20px;"></i>image uploaded
-   </div>
+</div>

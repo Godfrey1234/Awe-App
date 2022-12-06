@@ -9,6 +9,7 @@ import { NotificationsComponent } from './pages/notifications/notifications.comp
 import { EditProfileComponent } from './pages/edit-profile/edit-profile.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { GuardService } from './service/guard.service';
+import { FriendsComponent } from './pages/friends/friends.component';
 //import { Component, ViewChild } from '@angular/core';
 //import { MdbTableDirective } from 'mdb-angular-ui-kit/table';
 
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path:"search",component:SearchPageComponent,canActivate:[GuardService]},
   {path:"upload",component:UploadPageComponent,canActivate:[GuardService]},
   {path:"notifications",component:NotificationsComponent,canActivate:[GuardService]},
-  {path:"editprofile",component:EditProfileComponent,canActivate:[GuardService]}
+  {path:"editprofile",component:EditProfileComponent,canActivate:[GuardService]},
+  {path:"friends",component:FriendsComponent,canActivate:[GuardService]}
+
 
 
 ];

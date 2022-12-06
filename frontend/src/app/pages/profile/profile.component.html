@@ -19,15 +19,15 @@
           <span>posts</span>
 
       </th>
-      <th class="col1">
-          <span class="text">1</span><br>
-          <span>followers</span>
+      <th class="col1"  *ngFor ="let c of cFrineds">
+        <span class="text">{{c.count}}</span><br>
+        <span>friends</span>
 
-      </th>
+    </th>
       &nbsp;
-      <th class="col1">
-          <span class="text">3</span><br>
-          <span>following</span>
+      <th class="col1" >
+        <span class="text"><i class="biw bi-bookmark-plus-fill"></i></span><br>
+        <p class="text mt-5"><a [routerLink]="['/search']" routerLinkActive="router-link-active" class="fw-bold text-body"><u class="text" style="font-size:0.8rem;">Add Friends</u></a></p><br>
       </th>
 
   </tr>

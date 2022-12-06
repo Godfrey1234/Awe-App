@@ -24,7 +24,6 @@ tr{
 .col1{
     width: 22%;
     margin-left: 0.7rem;
-
 }
 
 .text{
@@ -54,15 +53,45 @@ width: 13rem;
 
 
 }
-
-.biw{
-    margin-left: 1.5rem;
-    margin-top: 2rem;
-    position: absolute;
-  
+button{
+    width: 100%;
+    margin-bottom: 2rem;
 }
 
-.p{
-    margin-top: -1rem;
-    
+.btn{
+    margin-left:25%;
+    margin-right:25%;
+    max-width: 50%;
+    padding: 2%;
+}
+
+.postsPics{
+   
+    height:1rem;
+}
+
+.deletei{
+
+    float: right;
+    margin-top: 0.1rem;
+    font-size: 20px;
+    color: red;
+   
+}
+
+.bi{
+    font-size: 20px;
+}
+
+
+.card-img-top{
+    width: 100%;
+}
+
+.imgPost{
+    width: 100%;
+    height: auto;
+    border: none;
+  
+  
 }

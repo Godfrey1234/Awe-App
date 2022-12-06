@@ -11,6 +11,15 @@ const like = (req, res) => {
 
 
 
+  
+
+
+
+
+
+
+
+
     if(id && likee_id){
   
       //checking if user already has an account
@@ -19,6 +28,9 @@ const like = (req, res) => {
       if (results.rowCount > 0) {
    
         res.send('already liked the post')
+
+
+        
        
        }else{
 
@@ -87,7 +99,7 @@ const unlike = (req, res) => {
               }
               else{
                 res.status(200).send(results.rows)
-                console.log('yeas')
+                
               }
              
             })
@@ -106,19 +118,20 @@ const getlike = (req, res) => {
 
  
   
-  const id =parseInt(req.params.likee_id);
-  
- 
-      
-  pool.query('select * from likes where id = $1' ,[id],(error, results)=> {
-       
-    if (results.rowCount > 0) {
+  const id = parseInt(req.params.id)
+  let like_status= "Active";
+  console.log(like_status)
 
-      res.send(results.rows)
+      
+  pool.query('select * from posts,likes,aweusers where aweusers.email=posts.email and posts.id=likes.post_id and aweusers.id=likes.likee_id and likes.like_status= $1 and likes.likee_id = $2',[like_status,id],(error, results)=> {
+       
+    if (error) {
+
+     throw error
     
     }else{
     
-         res.send('no likes')
+      res.send(results.rows)
 
         }
         });

@@ -12,10 +12,42 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class SearchPageComponent implements OnInit {
 
+
+  public isVisible: boolean = false;
+
   //declaring variables 
   userDetails!: AweInterface[];
+  localStorageData:any;
+  value!:string
+  user!:any;
+  Posts!:any;
+  post=[];
+  profilepic!:any;
+  like!:any;
+  user_fullname!:string;
+  user_surname!:string;
+  likee_id:any;
+  email:any;
+  id!:any
+  response!:any;
   
   constructor(private http:HttpClient,private router : Router,private spinnerService: NgxSpinnerService) { }
+
+
+//class to store frined details
+  friend = {
+
+    friend_id:"",
+    user_id:"",
+    friend_name:"",
+    friend_surname :"",
+    user_fullname :"",
+    user_surname :""
+   
+  }
+
+
+
 
   ngOnInit(): void {
     this.spinnerService.show();
@@ -23,6 +55,7 @@ export class SearchPageComponent implements OnInit {
       this.spinnerService.hide();
     }, 1000); 
     this.getDetails();
+    this.getUserID();
   }
 
 
@@ -48,8 +81,40 @@ export class SearchPageComponent implements OnInit {
 
     }
 
-    onFollow(id:any){
-      console.log(id)
+
+    getUserID(){
+      this.localStorageData = localStorage.getItem("token");
+      this.value = JSON.parse(this.localStorageData)
+      this.user = this.value
+      this.userDetails = this.user;
+      this.id = this.userDetails[0].id
+      this.friend.user_fullname = this.userDetails[0].fullname
+      this.friend.user_surname = this.userDetails[0].surname
+
+      console.log(this.id)
+    }
+
+    onFollow(id:any,fullname:any,surname:any){
+      
+      console.log(id + ' '+ fullname + ' '+surname + ' ' +this.id)
+
+      this.friend.friend_id = id;
+      this.friend.friend_name = fullname;
+      this.friend.friend_surname = surname;
+      this.friend.user_id = this.id
+
+      this.http.post('http://localhost:3000/Follow',this.friend, {responseType:'text'})
+      .subscribe((results)=>{
+   
+        this.response =results
+        this.isVisible=true;
+        setTimeout(()=>this.isVisible=false,1000)
+
+        console.log(results)
+        
+      })
+
+
       
 
     }

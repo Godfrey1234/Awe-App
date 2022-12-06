@@ -4,6 +4,8 @@ import { UploadImageService } from 'src/app/service/upload-image.service';
 import { FormGroup, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { AweInterface } from 'src/app/interface/awe-interface';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { countfriendsInterface } from 'src/app/interface/awe-interface';
+
 
 
 @Component({
@@ -14,6 +16,8 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class UploadPageComponent implements OnInit {
 
   public isVisible: boolean = false;
+
+
   post = new FormGroup({
       
       caption: new FormControl(''),
@@ -37,6 +41,9 @@ export class UploadPageComponent implements OnInit {
    surname!:string;
    profilepic!:string;
    numPosts!:string;
+   cFrineds!:countfriendsInterface [];
+   id!:any;
+   em!:any;
 
   constructor(private http:HttpClient,private spinnerService: NgxSpinnerService) { }
 
@@ -64,9 +71,30 @@ export class UploadPageComponent implements OnInit {
     this.fullname= data[0].fullname
     this.surname = data[0].surname
     this.profilepic = data[0].profilepic;
+    this.id = data[0].id
+    this.em = data[0].email
+
+   console.log(this.id)
+    this.http.get('http://localhost:3000/CountFriends/'+this.id).subscribe((data:any)=>{
+      console.log(data)
+
+       this.cFrineds = data
+
+
+       console.log(this.em)
+       this.http.get('http://localhost:3000/countPosts/'+this.em,)
+       .subscribe((results:any)=>{
+        this.numPosts = results[0].count;
+       })
+
+    })
 
      
   })  
+}
+
+getpost(){
+  
 }
 
 

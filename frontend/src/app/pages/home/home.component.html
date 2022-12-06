@@ -7,21 +7,24 @@
   
   <br><br><br><br>
   
-    <div class="row" ngFor="let dis of display" *ngFor="let i of Posts"  >
+    <div class="row" ngFor="let dis of display" *ngFor="let i of Posts"   >
+   
       
+       
+
       <div class="col-sm">
         <div class="card" style="width: 100%;">
-          
+        
           <div class="containerr">
               <br>      
            <img class="profilePic" src="{{i.profilepic}}" alt="">
-           <span  class="sp">{{i.fullname}} {{i.surname}} <span><i class="bie bi-download"></i></span></span>
+           <span  class="sp">{{i.fullname}} {{i.surname}} <span><a href="{{i.image}}" download="wlogo"><i class="bie bi-download"></i></a></span></span>
         
            </div>
 
             <div class="imgPost">
               <br>
-              <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
+              <a><img class="card-img-top" src="{{i.image}}"  alt="Card image cap"></a>
 
             </div>
            
@@ -30,13 +33,16 @@
               <span class="ic" [hidden]="isLiked" (click)="onLike(i.id,'true')"><i class="bi bi-heart"  ></i></span>
               <span class="ic2" *ngIf ="isLiked" (click)="onUnlike(i.id,'false')"><i class="bi bi-heart-fill" ></i></span>
                
-
+             
+                
                 <strong>&nbsp;&nbsp;{{i.likes}} likes</strong><br> 
                 <span class="caption">{{i.caption}}</span>
                 
             </div>
            
           </div>
+      </div>
+
       </div>
 </div>
 <ngx-spinner bdColor = "rgba(101, 50, 50, 55.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>

@@ -1,9 +1,11 @@
 .profilePic{
-    width:  70%;
-    height: 55%;
-    border-radius: 45%;
+    width:  4rem;
+    height: 4rem;
+    border-radius: 4rem;
+    border: solid 2px rgb(113, 113, 113);
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
+    margin-left: 1rem;
 }
 
 span{
@@ -14,7 +16,10 @@ tr{
     width: 100%;
 }
 
-
+.col{
+   
+    width: 34%;
+}
 
 .col1{
     width: 22%;
@@ -32,11 +37,22 @@ tr{
 }
 
 .spName{
-    font-size: 100%;
-    margin-left: 10%;
-    margin-right: 10%;
+    font-size: 70%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 100%;
 }
 
+
+.btn{
+
+
+width: 13rem;
+
+
+
+
+}
 button{
     width: 100%;
     margin-bottom: 2rem;
@@ -72,5 +88,11 @@ button{
     width: 100%;
 }
 
-
+.imgPost{
+    width: 100%;
+    height: auto;
+    border: none;
+  
+  
+}
 

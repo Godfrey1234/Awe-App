@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { AweInterface } from 'src/app/interface/awe-interface';
+import { AweInterface, followInterface } from 'src/app/interface/awe-interface';
 import { notificationInterface } from 'src/app/interface/awe-interface';
 import { NgxSpinnerService } from 'ngx-spinner';
+
 
 
 @Component({
@@ -27,6 +28,8 @@ export class NotificationsComponent implements OnInit {
   surname!:string;
   email:any;
   message!: notificationInterface[];
+  followI!:followInterface[];
+  id!:any
 
   public showSpinner(): void {
     this.spinnerService.show();
@@ -43,8 +46,17 @@ export class NotificationsComponent implements OnInit {
       this.spinnerService.hide();
     }, 2000); 
     this.getNotification();
+   
   }
 
+
+  getUserID(){
+    this.localStorageData = localStorage.getItem("token");
+    this.value = JSON.parse(this.localStorageData)
+    this.user = this.value
+    this.userDetails = this.user;
+  }
+  
 
 
   getNotification(){
@@ -57,6 +69,7 @@ export class NotificationsComponent implements OnInit {
     this.http.get('http://localhost:3000/userDetails/'+this.userDetails[0].id).subscribe((data:any)=>{
   
       this.email = data[0].email
+      this.id = this.userDetails[0].id
       console.log(this.email)
 
        if(data){
@@ -64,6 +77,19 @@ export class NotificationsComponent implements OnInit {
           console.log(data)
 
             this.message = data
+
+
+
+            this.http.get('http://localhost:3000/follow/'+this.id).subscribe((data:any)=>{
+              console.log(data)
+        
+                this.followI = data
+        
+            })
+          
+
+
+           
 
         })
 
@@ -74,5 +100,33 @@ export class NotificationsComponent implements OnInit {
   
     }
 
+
+
+    onFollow(id:any){
+
+      console.log(id)
+
+
+      this.http.put('http://localhost:3000/follow/'+id, {responseType:'text'})
+      .subscribe((results)=>{
+        
+        console.log(results)
+  
+       
+        
+       
+  
+      })  
+  
+       
+    
+
+
+
  
+    }
+ 
+
+
+
 }

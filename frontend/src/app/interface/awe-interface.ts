@@ -16,7 +16,38 @@ export interface AweInterface {
 export interface notificationInterface {
  
     message:string;
+    image:string;
+    post_id:0;
 }
 
+
+export interface followInterface {
+ 
+    message:string;
+    friend_id:0,
+    status:string
+    
+}
+
+
+export interface friendsInterface {
+ 
+    friend_name:string;
+    friend_surname:string;
+    profilepic:string;
+    
+
+    
+}
+
+
+export interface countfriendsInterface {
+ 
+    count:0
+  
+    
+
+    
+}
 
 
