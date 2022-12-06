@@ -43,7 +43,8 @@
 .card-img-top{
     
     border-radius: 0rem;
-    height: 20rem;
+    height: 50rem;
+    width: 100%;
    
 }
 
@@ -63,21 +64,6 @@ a{
 }
 
 
-.imgPost{
-    max-width: 100%;
-    width: 35%;
-    height: auto;
-    float: right;
-  
-}
-
-
-.card-img-top{
-    border-radius: 0rem;
-   
-    
-}
-
 .profilePic{
     margin-left: 0.5rem;
     width: 3rem;
@@ -96,6 +82,14 @@ a{
 }
 
 
+.bie{
+  
+    font-size: 1.4rem;
+    margin-left: 60rem;
+    position: absolute;
+   
+}
+
 @media (min-width: 0px) and (max-width: 768px) { 
 
     .profilePic{
@@ -107,9 +101,10 @@ a{
       }
 
       .card-img-top{
+    
         border-radius: 0rem;
+        height: 20rem;
        
-        
     }
     .Menu{
         display: none;
@@ -133,8 +128,8 @@ a{
     .bie{
   
         font-size: 1.4rem;
-        margin-left: 9rem;
-        overflow: hidden;
+        margin-left: 7rem;
+        position: absolute;
        
     }
    

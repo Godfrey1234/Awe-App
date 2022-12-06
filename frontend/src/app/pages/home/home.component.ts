@@ -84,7 +84,7 @@ export class HomeComponent implements OnInit {
   
       setTimeout(() => {
         this.spinnerService.hide();
-      }, 500); // 5 seconds
+      }, 1000); // 5 seconds
     
     this.getUserID();
     this.getDetails();

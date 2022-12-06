@@ -1,4 +1,4 @@
-<section class="vh-100 bg-image"
+<!-- <section class="vh-100 bg-image"
   >
   <div class="mask d-flex align-items-center h-100 gradient-custom-3">
     <div class="container h-100">
@@ -98,8 +98,167 @@
       </div>
     </div>
   </div>
+</section> -->
+
+
+
+
+<section class="vh-100" style="background-color: #ffff;">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col col-xl-10">
+        <div class="card" >
+          <div class="row g-0">
+            <div class="col-md-6 col-lg-5 d-none d-md-block">
+              <img src="http://res.cloudinary.com/dp94yvsaw/image/upload/v1670228634/Awe%20Images/y4q4ctvrm5gmksnakn2h.gif" 
+                alt="login form" class="img-fluid"  />
+            </div>
+            <div class="col-md-6 col-lg-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5 text-black">
+                
+               
+
+                  <form  #userPost="ngForm" (ngSubmit)="onRegister(userPost.value)" NG_VALIDATORS NG_VALIDATORS style="width: auto;">
+                      <div class="header">
+                          <div class="circle1">
+                            
+                          </div>
+                      
+                      </div>
+
+                   <div>
+                      <img  class="logo" src="http://res.cloudinary.com/dp94yvsaw/image/upload/v1670228634/Awe%20Images/y4q4ctvrm5gmksnakn2h.gif">
+                        </div>   
+                    
+                         
+                
+
+                        
+                        
+                      <label><p>Name</p></label>
+                       <div class="input-group mb-3"  [class.has-error]="name.invalid && name.touched" [class.has-success]="name.valid ">
+                       
+                             
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                              </div>
+                              <input type="text" class="form-control" minlength="2" name="name" ngModel #name="ngModel" placeholder="Enter your fullname" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+                        <span class="help-block" *ngIf="name.errors?.['required'] && name.touched">
+                          <p class="er">name is required!</p>
+                          <br>
+                        </span>
+                        <span class="help-block" *ngIf="name.errors?.['minlength']">
+                          <p class="er">name must be at least 2 characters long.</p>
+                          <br>
+                        </span>
+
+
+
+                        <label><p>Surname</p></label>
+                       <div class="input-group mb-3"  [class.has-error]="surname.invalid && surname.touched" [class.has-success]="surname.valid ">
+                       
+                             
+                              <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                              </div>
+                              <input type="text" class="form-control" minlength="2" name="surname" ngModel #surname="ngModel" placeholder="Enter your surname" aria-label="Username" aria-describedby="basic-addon1" required>
+                        </div>
+                        <span class="help-block" *ngIf="surname.errors?.['required'] && surname.touched">
+                          <p class="er">surname is required!</p>
+                          <br>
+                        </span>
+                        <span class="help-block" *ngIf="surname.errors?.['minlength']">
+                          <p class="er">surname must be at least 2 characters long.</p>
+                          <br>
+                        </span>
+
+                       
+                      <label>Email</label> 
+                    <div class="input-group mb-3"  [class.has-error]="email.invalid && email.touched" [class.has-success]="email.valid ">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1"> <i class="bi bi-envelope"></i></span>
+                      </div>
+                      <input type="email" class="form-control"  email id="email" ngModel name="email" placeholder="Email" #email="ngModel" required >
+                    </div>
+                      <span class="help-block" *ngIf="email.errors?.['required'] && email.touched">
+                        <p class="er">Email is required!</p>
+                        <br>
+                      </span>
+                      <span class="help-block" *ngIf="email.errors?.['email'] && email.touched">
+                        <p class="er">Email is invalid! (e.g name@gmail.com)</p>
+                        <br>
+                      </span>
+                     
+                        
+                      
+                      <label><p>password</p></label>
+                      <div class="input-group mb-3"  [class.has-error]="password.invalid && password.touched" [class.has-success]="password.valid ">
+                      
+                            
+                             <div class="input-group-prepend">
+                               <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                             </div>
+                             <input type="password" class="form-control" minlength="5" name="password" ngModel #password="ngModel" placeholder="Enter your surname" aria-label="Username" aria-describedby="basic-addon1" required>
+                       </div>
+                       <span class="help-block" *ngIf="password.errors?.['required'] && password.touched">
+                         <p class="er">password is required!</p>
+                         <br>
+                       </span>
+                       <span class="help-block" *ngIf="password.errors?.['minlength']">
+                         <p class="er">password must be at least 5 characters long.</p>
+                         <br>
+                       </span>
+
+
+                       <label><p>confirm</p></label>
+                      <div class="input-group mb-3"  [class.has-error]="confirm.invalid && confirm.touched" [class.has-success]="confirm.valid ">
+                      
+                            
+                             <div class="input-group-prepend">
+                               <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-fill"></i></span>
+                             </div>
+                             <input type="password"cd class="form-control" minlength="5" name="confirm" ngModel #confirm="ngModel" placeholder="Enter your confirm" aria-label="confirm" aria-describedby="basic-addon1" required>
+                       </div>
+                       <span class="help-block" *ngIf="confirm.errors?.['required'] && confirm.touched">
+                         <p class="er">password is required!</p>
+                         <br>
+                       </span>
+                       <span class="help-block" *ngIf="confirm.errors?.['minlength']">
+                         <p class="er">password must be at least 5 characters long.</p>
+                         <br>
+                       </span>
+
+
+
+
+          
+          
+                      <div class="pt-1 mb-4">
+                        <button class="btn"  [disabled]="!userPost.valid"><span>Sign up</span></button>
+                      </div>
+          
+                    
+                      <p class="linki" [routerLink]="['/login']" routerLinkActive="router-link-active">Sign in</p>
+                      <div class="circle2"></div>
+
+
+
+          
+                  </form>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="updated" [class.visible]="isVisible">
+    <i class="fa fa-exclamation-circle" style="font-size: 20px;"></i>password dont match
+   </div>
+   <div class="updated" [class.visible]="isVisible">
+    <i class="fa fa-exclamation-circle" style="font-size: 20px;"></i>password dont match
+   </div>
 </section>
-
-
-
-  
