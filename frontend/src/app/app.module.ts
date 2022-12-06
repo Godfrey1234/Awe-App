@@ -28,6 +28,7 @@ import{BrowserAnimationsModule} from '@angular/platform-browser/animations'
 import { GuardService } from './service/guard.service';
 import { AuthService } from './service/auth.service';
 import { FriendsComponent } from './pages/friends/friends.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 
@@ -46,7 +47,8 @@ import { FriendsComponent } from './pages/friends/friends.component';
     EditProfileComponent,
     LogoComponent,
     ViewUserProfileComponent,
-    FriendsComponent
+    FriendsComponent,
+    MenuComponent
     
   ],
   imports: [
