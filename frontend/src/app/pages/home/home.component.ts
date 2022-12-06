@@ -22,6 +22,8 @@ export class HomeComponent implements OnInit {
   public unlike: boolean = false;
   isLiked: boolean = false;
   isLoggedIn!:Boolean;
+  temp_id :any;
+  public liked: boolean = false;
  
 
   constructor(private http:HttpClient,private aweservice:AweServiceService, private router : Router) { }
@@ -82,8 +84,17 @@ export class HomeComponent implements OnInit {
     this.getPosts();
 
     this.checkLike();
-
+    console.log();
     
+    
+  }
+
+  setTempId(temp_id : any)
+  {
+
+    console.log("temp id"+temp_id);
+    this.temp_id = temp_id;
+
   }
 
 
@@ -153,6 +164,7 @@ checkLike()
     
    
     console.log(data)
+    console.log('meme')
     this.Posts1 = data
 
   })
@@ -162,7 +174,7 @@ checkLike()
 }
 
 
-onUnlike(id:any,unliked:string){
+onUnlike(id:any){
   this.isLiked = false;
 
   this.http.put('http://localhost:3000/unlike/'+id, {Response})
@@ -189,8 +201,10 @@ getLikes(){
 
 
 
-onLike(id:any,liked:string){
-  this.isLiked = true;
+onLike(id:any){
+ this.isLiked = true;
+
+
  
  
 

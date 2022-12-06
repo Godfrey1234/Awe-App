@@ -8,14 +8,7 @@ const like = (req, res) => {
     const id =parseInt(req.params.id);
     const {likee_id} = req.body; 
     let like_status = "Active"
-
-
-
-  
-
-
-
-
+    let deactive = "deactive"
 
 
 
@@ -123,7 +116,7 @@ const getlike = (req, res) => {
   console.log(like_status)
 
       
-  pool.query('select * from posts,likes,aweusers where aweusers.email=posts.email and posts.id=likes.post_id and aweusers.id=likes.likee_id and likes.like_status= $1 and likes.likee_id = $2',[like_status,id],(error, results)=> {
+  pool.query('select * from likes where likee_id = $1 AND like_status =$2',[id,like_status],(error, results)=> {
        
     if (error) {
 
