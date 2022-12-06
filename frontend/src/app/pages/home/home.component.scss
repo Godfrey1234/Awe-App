@@ -52,8 +52,9 @@ a{
 
 .imgPost{
     max-width: 100%;
+    width: 35%;
     height: auto;
-  
+    float: right;
   
 }
 
@@ -87,6 +88,9 @@ a{
         border-radius: 0rem;
        
         
+    }
+    .Menu{
+        display: none;
     }
 
    .sp{

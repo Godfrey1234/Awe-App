@@ -25,6 +25,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './components/footer/footer.component';
 import { ViewUserProfileComponent } from './pages/view-user-profile/view-user-profile.component';
 import { FriendsComponent } from './pages/friends/friends.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 
 
@@ -43,7 +44,8 @@ import { FriendsComponent } from './pages/friends/friends.component';
     EditProfileComponent,
     LogoComponent,
     ViewUserProfileComponent,
-    FriendsComponent
+    FriendsComponent,
+    MenuComponent
     
   ],
   imports: [
