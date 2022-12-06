@@ -6,7 +6,15 @@
 
   
   <br><br><br><br>
-  
+  <!-- <div class="row">
+  <div class="Menu col">
+    <a href="#"><li>home</li></a>
+    <a href="#"><li>home</li></a>
+    <a href="#"><li>home</li></a>
+    <a href="#"><li>home</li></a>
+    <a href="#"><li>home</li></a>
+  </div> -->
+
     <div class="row" ngFor="let dis of display" *ngFor="let i of Posts"   >
    
       
@@ -33,12 +41,7 @@
             <div class="card-boy">
                 
                  
-              <!-- <div class="heart" *ngFor="let c of Posts1">
-                  <span *ngIf="i.id == c.post_id">
-                    <span class="ic2"  (click)="onUnlike(i.id)"><i class="bi bi-heart-fill" ></i></span>
-                 </span>
-
-                </div> -->
+          
 
 
                
@@ -73,6 +76,7 @@
 
       </div>
 </div>
+<ngx-spinner bdColor =  #14213D size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
 <br><br><br>
 <app-footer></app-footer>
 
@@ -80,6 +84,7 @@
 <div class="updated" [class.visible]="isVisible">
   <i class="fa fa-exclamation-circle" style="font-size: 20px;"></i>liked
  </div>
+
 
 
 

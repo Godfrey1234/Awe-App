@@ -13,7 +13,9 @@ import { Router, ActivatedRoute, ParamMap, Route } from '@angular/router';
 
 
 export class RegisterComponent implements OnInit {
-  
+isVisible: any;
+password: any;
+
   
 
   constructor(private http:HttpClient, private router : Router) { }
@@ -27,7 +29,7 @@ export class RegisterComponent implements OnInit {
 
 
 
-  onSubmit(data:any){
+  onRegister(data:any){
    
     console.log(data)
    //Add the User to the Database
@@ -38,7 +40,7 @@ export class RegisterComponent implements OnInit {
 
      if(results == 'successfully registered'){
      
-      this.router.navigate(['login']);
+      this.router.navigate(['home']);
       console.warn('sucess');
       alert('successfully registered');
       

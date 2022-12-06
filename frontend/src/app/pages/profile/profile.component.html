@@ -44,11 +44,13 @@
                 <strong >{{i.likes}} <span>likes</span> <span class="deletei" (click)="onClick(i.id)"><i class="bi1 bi-trash "></i></span></strong>
               </div>
             </div> 
+            
 </div>
 
 
-
+<ngx-spinner  bdColor =  #14213D size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
 <br><br><br><br>
+
 <app-footer></app-footer> 
 
 <div class="updated" [class.visible]="isVisible">

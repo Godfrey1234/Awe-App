@@ -1,33 +1,27 @@
 
+<!-- <div class="container" style=" padding-top:100px;">
 
-<div class="container" style=" padding-top:100px;">
-    <!-- <h2 class="text-center">Contac Form</h2> -->
   
     <div id="contact"class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-6 pb-5">
 
 
-                    <!--Form with header-->
 
                     <form #userPost="ngForm" (ngSubmit)="onSubmit(userPost.value)" style="text-align: center;">
 
-                        <!-- <div class="card bg-dark rounded"> -->
-                            <!-- <div class="card-header p-0"> -->
+                     
                                 <div class="text-center"> 
                                     <p class="AWE"> <span id="A">A</span><span id="W">w</span><span id="E">e</span></p>
-                                    <!-- <h3 class="col text-warning">A</h3>
-                                    <h4 class="col text-info">W</h4>
-                                    <h5 class="col">E</h5> -->
-                                    <!-- <p class="m-0">Con gusto te ayudaremos</p> -->
+                                 
                                 </div>
-                            <!-- </div> -->
+                         
                             <div class="card-body p-3">
 
-                                <!--Body-->
+                            
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <!-- <div class="input-group-text"><i class="fa fa-user text-info"></i></div> -->
+                                       
                                         </div>
                                         <input type="text" class="form-control" id="username" ngModel name="email" placeholder="email" required>
                                     </div>
@@ -36,7 +30,7 @@
                                 <div class="form-group">
                                     <div class="input-group mb-2">
                                         <div class="input-group-prepend">
-                                            <!-- <div class="input-group-text"><i class="fa fa-envelope text-info"></i></div> -->
+                                        
                                         </div>
                                         <input type="password" class="form-control" id="password" ngModel name="password" placeholder="PASSWORD" required>
                                     </div>
@@ -45,13 +39,11 @@
                              
 
                                 <div class="text-center">
+                                    
                                     <button type="submit"  class="btn btn-primary" btn-lg btn-block>sign in</button>
                                 </div>
                             </div>
 
-                        <!-- </div> -->
-         
-                    <!--Form with header-->
                     <p class="text-right">Forgotten your password?</p>
                      
                     <p class="text-center text-muted mt-5 mb-0">Already have an account? <a href="#!"
@@ -60,5 +52,70 @@
                     </form>
                 </div>
     </div>
-</div>
+</div> -->
+
+
+<section class="vh-100" style="background-color: #ffff;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" >
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="http://res.cloudinary.com/dp94yvsaw/image/upload/v1670228634/Awe%20Images/y4q4ctvrm5gmksnakn2h.gif"
+                  alt="login form" class="img-fluid"  />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+  
+                  <form  [formGroup]="loginForm" (ngSubmit)="onSubmit()" style="width: auto;">
+                        <div class="header">
+                            <div class="circle1">
+                                <div class="circle2"></div>
+                            </div>
+                        
+                        </div>
+
+                      <img  class="logo" src="http://res.cloudinary.com/dp94yvsaw/image/upload/v1670228634/Awe%20Images/y4q4ctvrm5gmksnakn2h.gif">
+                           
+                    
+
+                             <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-envelope"></i></span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="email" placeholder="Enter your Email" aria-label="Username" aria-describedby="basic-addon1" required>
+                              </div>
+                         
+                      
+                              <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
+                                </div>
+                                <input type="text" class="form-control" formControlName="password" placeholder="Enter your password" aria-label="Username" aria-describedby="basic-addon1" required>
+                              </div>
+                        
+            
+            
+                        <div class="pt-1 mb-4">
+                          <button class="btn"  [disabled]="!loginForm.valid"><span>Sign in</span></button>
+                        </div>
+            
+                        <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
+
+                        <p class="linki" [routerLink]="['/register']" routerLinkActive="router-link-active">Sign up</p>
+            
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="updated" [class.visible]="isVisible">
+      <i class="fa fa-exclamation-circle" style="font-size: 20px;"></i>invalid login details
+     </div>
+  </section>
 
