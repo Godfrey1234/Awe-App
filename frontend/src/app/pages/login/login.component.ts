@@ -14,7 +14,7 @@ import { AuthService } from 'src/app/service/auth.service';
 export class LoginComponent implements OnInit {
   tittle: any;
   spinnerService: any;
-
+  public isVisible: boolean = false;
   constructor(private http:HttpClient, private router : Router,private authService:AuthService) { 
    
     
@@ -41,17 +41,20 @@ export class LoginComponent implements OnInit {
    this.http.post('http://localhost:3000/login',data, {responseType:'text'})
    .subscribe((results)=>{
 
+
+    this.isVisible=true;
+    setTimeout(()=>this.isVisible=false,1000)
     
      if(results === 'invalid login details' || results === 'enter username and password'){
       
-      alert('invalid login details')
+     
       console.log('invalid')
       
      }
      else{
       this.authService.login();
       console.warn('sucess');
-      alert('successfully logged in');
+   
       //routing to home page after successfully loging in
       this.router.navigate(['home']);
       //token for saving logged in user data
@@ -63,5 +66,6 @@ export class LoginComponent implements OnInit {
      
    })
   }
+
 
 }
