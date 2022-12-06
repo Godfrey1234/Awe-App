@@ -8,6 +8,8 @@ const like = (req, res) => {
     const id =parseInt(req.params.id);
     const {likee_id} = req.body; 
     let like_status = "Active"
+    let deactive = "deactive"
+
 
 
 
@@ -19,6 +21,9 @@ const like = (req, res) => {
       if (results.rowCount > 0) {
    
         res.send('already liked the post')
+
+
+        
        
        }else{
 
@@ -88,7 +93,7 @@ const unlike = (req, res) => {
               }
               else{
                 res.status(200).send(results.rows)
-                console.log('yeas')
+                
               }
              
             })
@@ -107,19 +112,20 @@ const getlike = (req, res) => {
 
  
   
-  const id =parseInt(req.params.likee_id);
-  
- 
-      
-  pool.query('select * from likes where id = $1' ,[id],(error, results)=> {
-       
-    if (results.rowCount > 0) {
+  const id = parseInt(req.params.id)
+  let like_status= "Active";
+  console.log(like_status)
 
-      res.send(results.rows)
+      
+  pool.query('select * from likes where likee_id = $1 AND like_status =$2',[id,like_status],(error, results)=> {
+       
+    if (error) {
+
+     throw error
     
     }else{
     
-         res.send('no likes')
+      res.send(results.rows)
 
         }
         });

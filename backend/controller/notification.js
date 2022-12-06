@@ -6,7 +6,8 @@ const notification = (req, res) => {
 
 
     const id = req.params.id
-    const {fullname,surname,email,email_post_owner} = req.body; 
+    let c = 0;
+    const {fullname,surname,email,email_post_owner,image} = req.body; 
     let message = "";
 
     console.log(email_post_owner)
@@ -15,6 +16,9 @@ const notification = (req, res) => {
 
 
     if(email && id){
+
+
+  
   
       //checking if user already has an account
      pool.query('select * from notification where email = $1 And post_id = $2' ,[email,id],(error, results)=> {
@@ -25,7 +29,7 @@ const notification = (req, res) => {
        
        }else{
    
-        pool.query('INSERT INTO notification (post_id,fullname,surname,message,email,email_post_owner ) VALUES ($1,$2,$3,$4,$5,$6)',[id,fullname,surname,message,email,email_post_owner ],(error, results) => 
+        pool.query('INSERT INTO notification (post_id,fullname,surname,message,email,email_post_owner,image) VALUES ($1,$2,$3,$4,$5,$6,$7)',[id,fullname,surname,message,email,email_post_owner,image],(error, results) => 
               {
           
                   if (error) 
@@ -34,7 +38,10 @@ const notification = (req, res) => {
                     }
                   else{
                   
-                      res.send('notification sent')
+                   
+                    res.send('notification sent');
+
+                     
                     
                   }  
                  
@@ -67,6 +74,8 @@ const getnotification = (req, res) => {
         if (error) {
           throw error
         }else{
+
+
             res.status(200).json(results.rows)
         }
         

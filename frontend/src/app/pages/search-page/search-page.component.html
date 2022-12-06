@@ -18,14 +18,18 @@
         <td class="col1"><img class="profilePic" src="{{user.profilepic}}" (click)="onClick(user.id)">
           <span> &nbsp; {{user.fullname}} {{user.surname}}</span>
         </td>
-        <td class="col3"><button type="button" class="btn btn-secondary" (click)="onFollow(user.id)">follow</button></td>
+        <td class="col3"><button type="button" class="btn btn-secondary" (click)="onFollow(user.id,user.fullname,user.surname)">follow</button></td>
       </tr>
       </tbody>
     </table>
   </div>
 </div>
 
-
-
 <br>
+
+
+<div class="updated" [class.visible]="isVisible">
+  <i class="fa fa-exclamation-circle" style="font-size: 20px;"></i>{{response}}
+</div>
+
 <app-footer></app-footer>

@@ -66,7 +66,14 @@ app.get('/countPosts/:email',countPosts.numPosts)
 app.get('/countFollowing/:id',countFollowing.numFollowing)
 app.get('/countFollowers/:id',countFollowers.numFollowers)
 app.put('/updateProfilePic/',updateProfilePic.profilePicture)
-app.put('/Follow',Follow.follow)
+
+
+app.post('/Follow',Follow.follow)
+app.get('/Follow/:id',Follow.getfollow)
+app.put('/Follow/:id',Follow.addfriend)
+app.get('/Friends/:id',Follow.getFriends)
+app.get('/CountFriends/:id',Follow.CountFriends)
+
 app.post('/notification/:id',notification.notification)
 app.get('/notification/:email',notification.getnotification)
 app.put('/updatePassword/:id',updatePassword.updatePass)

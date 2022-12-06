@@ -7,30 +7,62 @@
   
   <br><br><br><br>
   
-    <div class="row" ngFor="let dis of display" *ngFor="let i of Posts"  >
+    <div class="row" ngFor="let dis of display" *ngFor="let i of Posts"   >
+   
       
+       
+
       <div class="col-sm">
         <div class="card" style="width: 100%;">
-          
+        
           <div class="containerr">
               <br>      
            <img class="profilePic" src="{{i.profilepic}}" alt="">
-           <span  class="sp">{{i.fullname}} {{i.surname}} <span><i class="bie bi-download"></i></span></span>
+           <span  class="sp">{{i.fullname}} {{i.surname}} <span><a href="{{i.image}}" download="wlogo"><i class="bie bi-download"></i></a></span></span>
         
            </div>
 
+       
+
             <div class="imgPost">
               <br>
-              <img class="card-img-top" src="{{i.image}}" alt="Card image cap">
+              <a><img class="card-img-top" src="{{i.image}}"  alt="Card image cap"></a>
 
             </div>
            
             <div class="card-boy">
                 
-              <span class="ic" [hidden]="isLiked" (click)="onLike(i.id,'true')"><i class="bi bi-heart"  ></i></span>
-              <span class="ic2" *ngIf ="isLiked" (click)="onUnlike(i.id,'false')"><i class="bi bi-heart-fill" ></i></span>
+                 
+              <!-- <div class="heart" *ngFor="let c of Posts1">
+                  <span *ngIf="i.id == c.post_id">
+                    <span class="ic2"  (click)="onUnlike(i.id)"><i class="bi bi-heart-fill" ></i></span>
+                 </span>
+
+                </div> -->
+
+
                
 
+                <div class="heart" *ngFor="let c of Posts1">
+
+                    <span *ngIf="i.id == c.post_id">
+
+                      <span >
+                        <span  (click)="onUnlike(i.id)"><i class="ic2 bi-heart-fill" ></i></span>
+                      </span>
+
+                    </span>
+
+                </div>
+
+                <span >
+                  <span class="ic"  (click)="onLike(i.id)"><i class="bi bi-heart" ></i></span>
+                </span>
+
+
+               
+           
+                
                 <strong>&nbsp;&nbsp;{{i.likes}} likes</strong><br> 
                 <span class="caption">{{i.caption}}</span>
                 
@@ -38,8 +70,9 @@
            
           </div>
       </div>
-</div>
 
+      </div>
+</div>
 <br><br><br>
 <app-footer></app-footer>
 

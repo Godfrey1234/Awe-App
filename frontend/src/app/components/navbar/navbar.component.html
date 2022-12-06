@@ -1,11 +1,13 @@
 
 <header class="header" >
     <form #userPost="ngForm"  style="text-align: center;">
-   <!-- <img class="logo" src="http://res.cloudinary.com/dp94yvsaw/image/upload/v1669719283/Awe%20Images/fhhdv3nt4uwt1tfoxefc.gif"> -->
+   <img class="logo" src="../../../assets/Screenshot 2022-12-02 at 02.56.11.png">
     <input class="menu-btn" type="checkbox" id="menu-btn" />
     <label class="menu-icon" for="menu-btn"><span class="navicon"></span></label>
     <ul class="menu">
+        <li  [routerLink]="['/friends']" routerLinkActive="router-link-active"><a class="text-right" ><i class="bi bi-person-lines-fill" ></i >&nbsp;Friends</a></li>
         <li><a class="text-right" type="submit" (click)="onClick()"><i class="bi bi-box-arrow-right "></i>LOGOUT</a></li>
     </ul>
     </form>
+
   </header>
