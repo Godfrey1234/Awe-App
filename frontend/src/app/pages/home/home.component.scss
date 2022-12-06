@@ -30,7 +30,8 @@
 .card-img-top{
     
     border-radius: 0rem;
-    height: 20rem;
+    height: 50rem;
+    width: 100%;
    
 }
 
@@ -49,6 +50,33 @@ a{
     cursor: pointer;
 }
 
+
+.profilePic{
+    margin-left: 0.5rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 3rem;
+    border: solid 2px rgb(113, 113, 113);
+  }
+
+
+  .ic2{
+    color: red;
+    position: absolute;
+    margin-left: -1rem;
+    margin-top: 0.3rem;
+   
+}
+
+
+.bie{
+  
+    font-size: 1.4rem;
+    margin-left: 60rem;
+    position: absolute;
+   
+}
+
 @media (min-width: 0px) and (max-width: 768px) { 
 
     .profilePic{
@@ -60,9 +88,10 @@ a{
       }
 
       .card-img-top{
+    
         border-radius: 0rem;
+        height: 20rem;
        
-        
     }
 
    .sp{
@@ -83,8 +112,8 @@ a{
     .bie{
   
         font-size: 1.4rem;
-        margin-left: 9rem;
-        overflow: hidden;
+        margin-left: 7rem;
+        position: absolute;
        
     }
    
